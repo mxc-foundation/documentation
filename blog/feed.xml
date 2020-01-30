@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>MXC Documentation Blog</title>
+        <link>mxc.wiki/blog</link>
+        <description>The best place to stay up-to-date with the latest MXC Documentation news and events.</description>
+        <lastBuildDate>Fri, 11 Mar 2016 06:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <image>
+            <title>MXC Documentation Blog</title>
+            <url>mxc.wiki/img/favicon.ico</url>
+            <link>mxc.wiki/blog</link>
+        </image>
+        <copyright>Copyright © 2020 MXC Foundation gGmbH</copyright>
+        <item>
+            <title><![CDATA[Blog Title]]></title>
+            <link>mxc.wiki/blog/2016/03/11/blog-post.html</link>
+            <guid>mxc.wiki/blog/2016/03/11/blog-post.html</guid>
+            <pubDate>Fri, 11 Mar 2016 06:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum massa eget nulla aliquet sagittis. Proin odio tortor, vulputate ut odio in, ultrices ultricies augue. Cras ornare ultrices lorem malesuada iaculis. Etiam sit amet libero tempor, pulvinar mauris sed, sollicitudin sapien.</p>
+]]></description>
+        </item>
+    </channel>
+</rss>
