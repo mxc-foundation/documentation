@@ -1,0 +1,8 @@
+{
+  "developers": {
+    "Getting Started": ["startingDev"]
+  },
+  "users": {
+    "First Category": ["startingUser", "doc5"]
+  }
+}
