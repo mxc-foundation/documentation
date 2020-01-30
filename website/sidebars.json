@@ -1,6 +1,6 @@
 {
   "developers": {
-    "Getting Started": ["startingDev"]
+    "Getting Started": ["startingDev", "quickstartDev", "development"]
   },
   "users": {
     "First Category": ["startingUser", "doc5"]
