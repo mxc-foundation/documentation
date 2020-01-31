@@ -1,8 +1,11 @@
 {
   "developers": {
-    "Getting Started": ["startingDev", "quickstartDev", "development"]
+    "Getting Started": ["developers/startingDev", "developers/quickstartDev", "developers/development"]
   },
   "users": {
-    "First Category": ["startingUser", "doc5"]
+    "Getting Started": ["users/startingUser"]
+  },
+   "release": {
+    "Versions": ["release/v.1.0.X"]
   }
 }
