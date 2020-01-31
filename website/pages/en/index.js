@@ -5,8 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const React = require('react');
 
+
+const React = require('react');
+const translate = require('../../server/translate.js').translate;
 const CompLibrary = require('../../core/CompLibrary.js');
 
 const MarkdownBlock = CompLibrary.MarkdownBlock; /* Used to read markdown */
@@ -63,9 +65,9 @@ class HomeSplash extends React.Component {
         <div className="inner">
           <ProjectTitle tagline={siteConfig.tagline} title={siteConfig.title} />
           <PromoSection>
-            <Button href={docUrl('startingUser.html')}>Users</Button>
-            <Button href={docUrl('startingDev.html')}>Developers</Button>
-            <Button href='https://discord.gg/fbyCMa3'>Support</Button>
+            <Button href={docUrl('startingUser.html')}><translate>Users</translate></Button>
+            <Button href={docUrl('startingDev.html')}><translate>Developers</translate></Button>
+            <Button href='https://discord.gg/fbyCMa3'><translate>Support</translate></Button>
           </PromoSection>
         </div>
       </SplashContainer>
@@ -119,8 +121,8 @@ class Index extends React.Component {
 
       return (
         <div className="productShowcaseSection paddingBottom">
-          <h2>Who is Using This?</h2>
-          <p>MXC is used by </p>
+          <h2><translate>Who is Using This?</translate></h2>
+          <p><translate>MXC is used by </translate></p>
           <div className="logos">{showcase}</div>
         </div>
       );
