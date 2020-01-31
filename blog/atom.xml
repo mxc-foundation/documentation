@@ -2,23 +2,59 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>mxc.wiki/blog</id>
     <title>MXC Documentation Blog</title>
-    <updated>2016-03-11T06:00:00.000Z</updated>
+    <updated>2020-01-31T06:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="mxc.wiki/blog"/>
     <subtitle>The best place to stay up-to-date with the latest MXC Documentation news and events.</subtitle>
     <logo>mxc.wiki/img/favicon.ico</logo>
     <rights>Copyright © 2020 MXC Foundation gGmbH</rights>
     <entry>
-        <title type="html"><![CDATA[Blog Title]]></title>
-        <id>mxc.wiki/blog/2016/03/11/blog-post.html</id>
-        <link href="mxc.wiki/blog/2016/03/11/blog-post.html"/>
-        <updated>2016-03-11T06:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum massa eget nulla aliquet sagittis. Proin odio tortor, vulputate ut odio in, ultrices ultricies augue. Cras ornare ultrices lorem malesuada iaculis. Etiam sit amet libero tempor, pulvinar mauris sed, sollicitudin sapien.</p>
+        <title type="html"><![CDATA[v.1.0.4]]></title>
+        <id>mxc.wiki/blog/2020/01/31/blog-post.html</id>
+        <link href="mxc.wiki/blog/2020/01/31/blog-post.html"/>
+        <updated>2020-01-31T06:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>Our 1.0.4 release improves both gateway and device management in MXC Supernodes by squashing more abnoxious bugs. These included:</p> <ul> <li>Setting requirements for application names (so that you can add applications)</li> <li>Gateway profile detail not appearing for ...</li></ul>]]></summary>
+        <author>
+            <name>Jeff Stahlnecker</name>
+            <email/>
+            <uri>https://www.linkedin.com/in/jstahlnecker/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v.1.0.3]]></title>
+        <id>mxc.wiki/blog/2020/01/21/blog-post.html</id>
+        <link href="mxc.wiki/blog/2020/01/21/blog-post.html"/>
+        <updated>2020-01-21T06:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>This release fixes the following bugs:</p> <ul> <li>Create gateway generating an unknown error</li> <li>Update gateway generating an unknown error</li> <li>Create gateway button unresponsive for some users</li> </ul> ]]></summary>
+        <author>
+            <name>Jeff Stahlnecker</name>
+            <email/>
+            <uri>https://www.linkedin.com/in/jstahlnecker/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v.1.0.2]]></title>
+        <id>mxc.wiki/blog/2020/01/17/blog-post.html</id>
+        <link href="mxc.wiki/blog/2020/01/17/blog-post.html"/>
+        <updated>2020-01-17T06:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>It's anoter bug squashing update! For this release we focused on cleaning up the new UI. Specific fixes include:</p> <ul> <li>Updated translations</li> <li>Updated sidebar for Supernode Operators</li> <li>Repaired a bug with user registration</li> <li>Cleaned up misc. error stream on logi...</li></ul>]]></summary>
+        <author>
+            <name>Jeff Stahlnecker</name>
+            <email/>
+            <uri>https://www.linkedin.com/in/jstahlnecker/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v.1.0.0]]></title>
+        <id>mxc.wiki/blog/2020/01/15/blog-post.html</id>
+        <link href="mxc.wiki/blog/2020/01/15/blog-post.html"/>
+        <updated>2020-01-15T06:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>This is a massive update! First we merged the UI of the M2M Wallet with the LPWAN Server, making the entire system mobile friendly. Then we modified Top-Up to ensure that you can only top up your MXC if you paired your wallet with your supernode account. We also improved the staking experience so that you're able to unstake and restake your MXC.</p>
 ]]></summary>
         <author>
-            <name>Blog Author</name>
+            <name>Jeff Stahlnecker</name>
             <email/>
-            <uri>http://twitter.com/</uri>
+            <uri>https://www.linkedin.com/in/jstahlnecker/</uri>
         </author>
     </entry>
 </feed>
