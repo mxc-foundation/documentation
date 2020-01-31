@@ -1,11 +1,11 @@
 {
   "developers": {
-    "Getting Started": ["developers/startingDev", "developers/quickstartDev", "developers/development"]
+    "Getting Started": ["startingDev", "quickstartDev", "development"]
   },
   "users": {
-    "Getting Started": ["users/startingUser"]
+    "Getting Started": ["startingUser"]
   },
    "release": {
-    "Versions": ["release/v.1.0.X"]
+    "Versions": ["v.1.0.X"]
   }
 }
