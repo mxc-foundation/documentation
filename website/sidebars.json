@@ -3,7 +3,11 @@
     "Getting Started": ["startingDev", "quickstartDev", "development"]
   },
   "users": {
-    "Getting Started": ["startingUser"]
+    "Getting Started": ["startingUser", "userCreateAccount"],
+    "M2M Wallet": ["userM2mWallet", "userStaking"],
+    "LPWAN Devices": [
+      "userLPWAN"
+    ]
   },
    "release": {
     "Versions": ["v.1.0.X"]
