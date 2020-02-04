@@ -13,8 +13,6 @@
   "devDependencies": {
     "docusaurus": "^1.14.4"
   },
-
   "crowdin-upload": "crowdin --config ../crowdin.yaml upload sources --auto-update -b master",
   "crowdin-download": "crowdin --config ../crowdin.yaml download -b master"
-
 }
