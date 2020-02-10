@@ -6,7 +6,11 @@
     "Getting Started": ["startingUser", "userCreateAccount"],
     "M2M Wallet": ["userM2mWallet", "userStaking"],
     "LPWAN Devices": [
-      "userLPWAN"
+      "userLPWAN",
+      "serviceProfiles",
+      "deviceProfiles",
+      "applications",
+      "multicastGroups"
     ]
   },
    "release": {
