@@ -8,11 +8,15 @@ An application is a collection of devices with the same purpose / of the same ty
 
 When creating an Application, you need to select the Service Profile which will be used for the devices created under this Application. Note that once a Service Profile has been selected, it can’t be changed.
 
-Payload codecs
+## Payload codecs
 The payload codec options have moved to the Device Profile. For backward compatibility, existing codec configuration on the application is still accessible and functional, but this will be removed fully in the next major release update.
 
-Integrations
+## Integrations
 For documentation on the available integrations, please refer to Sending and Receiving.
 
-Devices
+## Devices
 Multiple Devices can be added to the Application.
+
+---
+
+*Our user documentation is adapted from the open-source project [Chirpstack](https://www.chirpstack.io/application-server/use/)*

@@ -12,3 +12,7 @@ The provisioning of the multicast-group on the device happens out-of-band. This 
 
 ## Sending data
 Sending data to the multicast-group happens using the gRPC or RESTful JSON API.
+
+---
+
+*Our user documentation is adapted from the open-source project [Chirpstack](https://www.chirpstack.io/application-server/use/)*

@@ -28,3 +28,7 @@ An organization administrator is authorized to manage the users assigned with th
 
 #### Regular User
 Regular users are able to see all data, but are not able to make any modifications.
+
+---
+
+*Our user documentation is adapted from the open-source project [Chirpstack](https://www.chirpstack.io/application-server/use/)*

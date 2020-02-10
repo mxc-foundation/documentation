@@ -41,3 +41,7 @@ function Encode(fPort, obj, variables) {
   return [];
 }
 ```
+
+---
+
+*Our user documentation is adapted from the open-source project [Chirpstack](https://www.chirpstack.io/application-server/use/)*
