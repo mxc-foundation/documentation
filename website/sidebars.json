@@ -13,7 +13,9 @@
       "multicastGroups",
       "devices",
       "gateway",
-      "frameLogging"
+      "frameLogging",
+      "eventLogging",
+      "firmwareUpdate"
     ]
   },
    "release": {
