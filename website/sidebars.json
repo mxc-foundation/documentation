@@ -5,12 +5,17 @@
   "users": {
     "Getting Started": ["startingUser", "userCreateAccount"],
     "M2M Wallet": ["userM2mWallet", "userStaking"],
-    "LPWAN Devices": [
+    "LPWAN Management": [
       "userLPWAN",
       "serviceProfiles",
       "deviceProfiles",
       "applications",
-      "multicastGroups"
+      "multicastGroups",
+      "devices",
+      "gateway",
+      "frameLogging",
+      "eventLogging",
+      "firmwareUpdate"
     ]
   },
    "release": {
