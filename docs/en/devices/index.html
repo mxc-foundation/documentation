@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Device Management · MXC Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="A device is the end-device connecting to, and communicating over the LoRaWAN® network. ChirpStack Application Server supports both OTAA (over the air activation) and ABP (activation by personalization) type devices (configured by the selected [Device Profile](/docs/en/deviceProfiles))."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Device Management · MXC Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="mxc.wiki/"/><meta property="og:description" content="A device is the end-device connecting to, and communicating over the LoRaWAN® network. ChirpStack Application Server supports both OTAA (over the air activation) and ABP (activation by personalization) type devices (configured by the selected [Device Profile](/docs/en/deviceProfiles))."/><meta property="og:image" content="mxc.wiki/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="mxc.wiki/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/favicon.ico" alt="MXC Documentation"/><h2 class="headerTitleWithLogo">MXC Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/en/startingUser" target="_self">Users</a></li><li class=""><a href="/docs/en/startingDev" target="_self">Developers</a></li><li class=""><a href="/docs/en/v.1.0.X" target="_self">Release Notes</a></li><li class=""><a href="/en/help" target="_self">Support</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/zh-CN/devices">中文</a></li><li><a href="/docs/zh-TW/devices">繁體中文</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>LPWAN Management</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/startingUser">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/docs/en/userCreateAccount">Create an Account</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">M2M Wallet</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/userM2mWallet">Wallet Balance</a></li><li class="navListItem"><a class="navItem" href="/docs/en/userStaking">Staking</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">LPWAN Management</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/userLPWAN">Managing Gateways &amp; Devices</a></li><li class="navListItem"><a class="navItem" href="/docs/en/serviceProfiles">Service Profiles</a></li><li class="navListItem"><a class="navItem" href="/docs/en/deviceProfiles">Device Profiles</a></li><li class="navListItem"><a class="navItem" href="/docs/en/applications">Applications</a></li><li class="navListItem"><a class="navItem" href="/docs/en/multicastGroups">Multicast Groups</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/en/devices">Devices</a></li><li class="navListItem"><a class="navItem" href="/docs/en/gateway">Gateways</a></li><li class="navListItem"><a class="navItem" href="/docs/en/frameLogging">Frame logging</a></li><li class="navListItem"><a class="navItem" href="/docs/en/eventLogging">Event Logging</a></li><li class="navListItem"><a class="navItem" href="/docs/en/firmwareUpdate">Firmware Updates</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Device Management</h1></header><article><div><span><p>A device is the end-device connecting to, and communicating over the LoRaWAN® network. ChirpStack Application Server supports both OTAA (over the air activation) and ABP (activation by personalization) type devices (configured by the selected <a href="/docs/en/deviceProfiles">Device Profile</a>).</p>
+<h2><a class="anchor" aria-hidden="true" id="create--update"></a><a href="#create--update" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create / update</h2>
+<p>When creating or updating a device, you need to select the <a href="/docs/en/deviceProfiles">Device Profile</a> matching the device capabilities. E.g. the Device Profile defines if the device is of type OTAA or ABP.</p>
+<p><strong>Note:</strong> In the dropdown, only the Device Profiles are available which are provisioned on the same Network Server as the <a href="/docs/en/serviceProfiles">Service Profile</a> which is assigned to the <a href="/docs/en/applications">Application</a> above the device.</p>
+<h3><a class="anchor" aria-hidden="true" id="tags-and-variables"></a><a href="#tags-and-variables" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tags and variables</h3>
+<p>Each device can have multiple user-defined tags and variables assigned. Variables are used for integrations and can for example contain API tokens. Tags are exposed when ChirpStack Application Server published device events and can be used to add additional meta-data, e.g. for aggregation.</p>
+<h2><a class="anchor" aria-hidden="true" id="activation"></a><a href="#activation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Activation</h2>
+<h3><a class="anchor" aria-hidden="true" id="otaa-devices"></a><a href="#otaa-devices" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>OTAA devices</h3>
+<p>After creating a device, you can manage the application-key (and network-key for LoRaWAN 1.1 devices) under the Keys (OTAA) tab. Under the Activation you will see the current device activation (if activated).</p>
+<h3><a class="anchor" aria-hidden="true" id="abp-devices"></a><a href="#abp-devices" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ABP devices</h3>
+<p>After creating a device, you can ABP activate this device under the Activation tab. You can either enter the device address, network session key and application session key or generate these. For LoRaWAN 1.1 devices, the network session key is replaced by network session encryption key, serving network session integrity key and forwarding network session integrity key.</p>
+<h2><a class="anchor" aria-hidden="true" id="device-provisioning-examples"></a><a href="#device-provisioning-examples" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Device provisioning examples</h2>
+<p>Below you will find provision examples for different devices.</p>
+<p>The following example data is used:</p>
+<pre><code class="hljs"><span class="hljs-attr">DevEUI:</span> <span class="hljs-number">0102030405060708</span>
+<span class="hljs-attr">AppKey:</span> <span class="hljs-number">01020304050607080910111213141516</span>
+</code></pre>
+<p>In case an App EUI / Join EUI is required, you can set this to a blank value (<code>0000000000000000</code>). This value only becomes relevant when an external join-server is being used.</p>
+<h3><a class="anchor" aria-hidden="true" id="rn2483--rn2903"></a><a href="#rn2483--rn2903" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>RN2483 / RN2903</h3>
+<p>Through a serial terminal, use the following commands (terminated by <code>CR + LF</code>):</p>
+<pre><code class="hljs"><span class="hljs-keyword">mac</span> <span class="hljs-keyword">set</span> deveui 0102030405060708
+<span class="hljs-keyword">mac</span> <span class="hljs-keyword">set</span> appeui 0000000000000000
+<span class="hljs-keyword">mac</span> <span class="hljs-keyword">set</span> appkey 01020304050607080910111213141516
+<span class="hljs-keyword">mac</span> join otaa
+</code></pre>
+<p>Any time a <code>mac save</code> is done, <code>mac set devaddr 00000000</code> should first be issued. Not doing so will result in the <code>mac join otaa</code> command failing. Per the RN2903 manual, If this parameter was previously saved to user EEPROM by issuing the mac save command, after modifying its value, the mac save command should be called again.</p>
+<p>A <code>mac save</code> must be done any time the application key (<code>mac set appkey</code>), application EUI (<code>mac set appeui</code>), or the device EUI (mac set deveui) are changed in order to persist these changes.</p>
+<h3><a class="anchor" aria-hidden="true" id="im880a-l--im880b-l"></a><a href="#im880a-l--im880b-l" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>iM880A-L / iM880B-L</h3>
+<p>Make sure your device is running a recent firmware! These steps were tested with a device running v1.14. Use WiMOD LoRaWAN EndDevice Studio for the following actions:</p>
+<h4><a class="anchor" aria-hidden="true" id="to-set-the-deveui"></a><a href="#to-set-the-deveui" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>To set the DevEUI</h4>
+<ol>
+<li>Go to <strong>Extras -&gt; Factory Settings</strong></li>
+<li>Click <strong>Set Customer Mode</strong></li>
+<li>Enter the Device EUI as <code>0807060504030201</code>. <strong>Note:</strong> this field must be entered as LSB (meaning it is the reverse value as created in ChirpStack Application Server)!</li>
+<li>Click <strong>Set Device EUI</strong></li>
+<li>Click <strong>Set Application Mode</strong></li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="to-set-the-appeui-and-appkey"></a><a href="#to-set-the-appeui-and-appkey" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>To set the AppEUI and AppKey</h4>
+<ol>
+<li>Go back to <strong>LoRaWAN Device</strong></li>
+<li>Enter the <strong>Application EUI</strong> as <code>0000000000000000</code>. <strong>Note:</strong> this field must be entered as LSBF (meaning it is the reverse value as created in ChirpStack Application Server)!</li>
+<li>Enter the <strong>Application Key</strong> as <code>01020304050607080910111213141516</code>. <strong>Note:</strong> Opposite to the Device / Application EUI, this field must be entered as MSB (the same value as set in ChirpStack Application Server).</li>
+<li>Click <strong>Set Join Parameter</strong></li>
+<li>Click <strong>Join Network</strong></li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="multiconnect-mdot"></a><a href="#multiconnect-mdot" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MultiConnect® mDot™</h4>
+<p>Through a serial terminal, use the following commands:</p>
+<pre><code class="hljs"><span class="hljs-built_in">AT</span>
+<span class="hljs-built_in">AT</span>+NJM=<span class="hljs-number">1</span>
+<span class="hljs-built_in">AT</span>+NI=<span class="hljs-number">0</span>,<span class="hljs-number">0000000000000000</span>
+<span class="hljs-built_in">AT</span>+NK=<span class="hljs-number">0</span>,<span class="hljs-number">01020304050607080910111213141516</span>
+<span class="hljs-built_in">AT</span>&amp;W
+
+ATZ
+
+<span class="hljs-built_in">AT</span>+<span class="hljs-keyword">JOIN
+</span></code></pre>
+<p>For mDot™ we can’t modify DevEUI as it’s a factory-programmed setting. use the following command to obtain it:</p>
+<p><code>AT+DI?</code></p>
+<h4><a class="anchor" aria-hidden="true" id="generic-arduino-lmic-based-devices"></a><a href="#generic-arduino-lmic-based-devices" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Generic Arduino LMIC-based devices</h4>
+<ol>
+<li>Make sure that your <strong>Device Profile</strong> has <strong>LoRaWAN MAC</strong> version set to <code>1.0.2</code>, and <strong>LoRaWAN Regional Parameters revision</strong> set to A</li>
+<li>Install the Arduino LMIC library using the Library Manager in the Arduino IDE</li>
+<li>Open the example sketch from <strong>Examples -&gt; LMIC-Arduino -&gt; ttn-otaa.ino</strong></li>
+<li>Update the sketch with the <strong>Device EUI</strong> as <code>0807060504030201</code>. <strong>Note:</strong> this field must be entered as LSB (meaning it is the reverse value as created in ChirpStack Application Server)!</li>
+<li>Update the sketch with the Application EUI as 0000000000000000. Note: this field must be entered as LSB (meaning it is the reverse value as created in ChirpStack Application Server)!</li>
+<li>Update the sketch with the <strong>Application Key</strong> as <code>01020304050607080910111213141516</code>. <strong>Note:</strong> Opposite to the Device / Application EUI, this field must be entered as-is (the same value as set in ChirpStack Application Server).</li>
+<li>Flash the sketch to your device and confirm that the device has been activated in the ChirpStack Application Server console and on the Arduino Serial Monitor</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="your-device-not-here"></a><a href="#your-device-not-here" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Your device not here?</h4>
+<p>Please help making this guide complete! Fork the <a href="https://github.com/mxc-foundation/documentation">https://github.com/mxc-foundation/documentation</a> repository, update this page with the actions needed to setup your device and create a pull-request.</p>
+<hr>
+<p><em>Our user documentation is adapted from the open-source project <a href="https://www.chirpstack.io/application-server/use/">Chirpstack</a></em></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/multicastGroups"><span class="arrow-prev">← </span><span>Multicast Groups</span></a><a class="docs-next button" href="/docs/en/gateway"><span>Gateways</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#create--update">Create / update</a><ul class="toc-headings"><li><a href="#tags-and-variables">Tags and variables</a></li></ul></li><li><a href="#activation">Activation</a><ul class="toc-headings"><li><a href="#otaa-devices">OTAA devices</a></li><li><a href="#abp-devices">ABP devices</a></li></ul></li><li><a href="#device-provisioning-examples">Device provisioning examples</a><ul class="toc-headings"><li><a href="#rn2483--rn2903">RN2483 / RN2903</a></li><li><a href="#im880a-l--im880b-l">iM880A-L / iM880B-L</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="MXC Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/startingDev.html">Getting Started for Developers</a><a href="/docs/en/startingUser.html">Getting Started for Users</a></div><div><h5>Community</h5><a href="https://discord.gg/fbyCMa3" target="_blank" rel="noreferrer noopener">Developers on Discord</a><a href="https://discord.gg/4vrJyhX" target="_blank" rel="noreferrer noopener">Users on Discord</a><a href="https://t.me/mxcfoundation">Project Chat</a><a href="https://twitter.com/mxcfoundation" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/orgs/mxc-foundation/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/mxc-foundation/lpwan-app-server" data-show-count="true" data-count-aria-label="# Supernodes" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 MXC Foundation gGmbH</section></footer></div></body></html>
