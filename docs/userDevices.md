@@ -1,7 +1,7 @@
 ---
 id: devices
 title: Device Management
-sidebar_label: Device Management
+sidebar_label: Devices
 ---
 
 A device is the end-device connecting to, and communicating over the LoRaWAN® network. ChirpStack Application Server supports both OTAA (over the air activation) and ABP (activation by personalization) type devices (configured by the selected [Device Profile](userDeviceProfiles.md)).

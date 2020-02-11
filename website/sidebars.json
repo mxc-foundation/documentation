@@ -11,7 +11,9 @@
       "deviceProfiles",
       "applications",
       "multicastGroups",
-      "devices"
+      "devices",
+      "gateway",
+      "frameLogging"
     ]
   },
    "release": {
