@@ -34,4 +34,7 @@ An example ARM Mbed FUOTA implementation can be found at: [https://github.com/AR
 To obtain the Firmware file (```xdot-blinky-signed.bin```), you must use the following command:
 
 ```lorawan-fota-signing-tool sign-binary -b example-firmware/xdot-blinky.bin -o xdot-blinky-signed.bin --output-format bin --override-version```
+
 Refer to the above repository for more information and instructions.
+---
+*Our user documentation is adapted from the open-source project [Chirpstack](https://www.chirpstack.io/application-server/use/)*

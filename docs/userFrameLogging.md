@@ -82,5 +82,6 @@ Frames displayed are not stored in a database. As soon as you refresh the page, 
     }
 ]
 ```
+---
 
 *Our user documentation is adapted from the open-source project [Chirpstack](https://www.chirpstack.io/application-server/use/)*
