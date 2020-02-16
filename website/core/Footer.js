@@ -46,13 +46,13 @@ class Footer extends React.Component {
           </div>
           <div>
             <h5>Community</h5>
-            <a href='https://discord.gg/fbyCMa3'
+            <a href={this.props.config.chatUrlDiscordDevelopers}
               target="_blank"
               rel="noreferrer noopener">
               Developers on Discord
             </a>
             <a
-              href="https://discord.gg/4vrJyhX"
+              href={this.props.config.chatUrlDiscordDevelopers}
               target="_blank"
               rel="noreferrer noopener">
               Users on Discord
@@ -71,7 +71,7 @@ class Footer extends React.Component {
             <a href="https://github.com/orgs/mxc-foundation/">GitHub</a>
             <a
               className="github-button"
-              href={this.props.config.repoUrl}
+              href={`${this.props.config.baseUrlGithub}/lpwan-app-server`}
               data-icon="octicon-star"
               data-count-href="/mxc-foundation/lpwan-app-server"
               data-show-count="true"
