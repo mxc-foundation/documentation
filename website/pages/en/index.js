@@ -67,7 +67,7 @@ class HomeSplash extends React.Component {
           <PromoSection>
             <Button href={docUrl('startingUser.html')}><translate>Users</translate></Button>
             <Button href={docUrl('startingDev.html')}><translate>Developers</translate></Button>
-            <Button href='https://discord.gg/fbyCMa3'><translate>Support</translate></Button>
+            <Button href={siteConfig.chatUrlDiscordDevelopers}><translate>Support</translate></Button>
           </PromoSection>
         </div>
       </SplashContainer>
