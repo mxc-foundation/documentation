@@ -67,7 +67,6 @@ class Footer extends React.Component {
           </div>
           <div>
             <h5>More</h5>
-            <a href={`${this.props.config.baseUrl}blog`}>Blog</a>
             <a href="https://github.com/orgs/mxc-foundation/">GitHub</a>
             <a
               className="github-button"
@@ -75,7 +74,7 @@ class Footer extends React.Component {
               data-icon="octicon-star"
               data-count-href="/mxc-foundation/lpwan-app-server"
               data-show-count="true"
-              data-count-aria-label="# Supernodes"
+              data-count-aria-label="# MXC on GitHub"
               aria-label="Star this project on GitHub">
               Star
             </a>
