@@ -92,6 +92,7 @@ const siteConfig = {
   // Open Graph and Twitter card images.
   ogImage: 'img/undraw_online.svg',
   twitterImage: 'img/undraw_tweetstorm.svg',
+  twitterUsername: 'mxcfoundation',
 
   // For sites with a sizable amount of content, set collapsible to true.
   // Expand/collapse the links and subcategories under categories.
@@ -106,6 +107,9 @@ const siteConfig = {
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
   //   repoUrl: 'https://github.com/facebook/test-site',
+  baseUrlGithub: 'https://github.com/mxc-foundation',
+  chatUrlDiscordDevelopers: 'https://discord.gg/4vrJyhX',
+  chatUrlDiscordDevelopers: 'https://discord.gg/fbyCMa3'
 };
 
 module.exports = siteConfig;
