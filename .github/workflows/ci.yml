@@ -28,4 +28,4 @@ jobs:
           env:
             GIT_USER: ${{ secrets.GH_NAME }}
             CURRENT_BRANCH: master
-        - run: cd website && npm run publish-gh-pages
+        - run: env && cd website && yarn run publish-gh-pages
