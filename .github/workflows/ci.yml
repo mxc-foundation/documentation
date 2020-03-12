@@ -25,7 +25,4 @@ jobs:
         - uses: actions/setup-node@v1
           with:
             node-version: 12
-          env:
-            GIT_USER: ${{ secrets.GH_NAME }}
-            CURRENT_BRANCH: master
-        - run: env && cd website && yarn run publish-gh-pages
+        - run: GIT_USER=${{ secrets.GH_USER }} CURRENT_BRANCH=master cd website && env && yarn run publish-gh-pages
