@@ -13,7 +13,7 @@ with a web-interface and API (RESTful JSON and gRPC) and supports authorization
 by using JWT tokens (optional). Received payloads are published over MQTT
 and payloads can be enqueued by using MQTT or the API.
 
-If you're interested in the pure Chirsptack experience, or need to troubleshoot a build problem, check out the links below. Otherwise head over to the [MXC LPWAN App Server Quickstart Guide](https://wiki.mxc.org/quickstartDev).
+If you're interested in the pure Chirsptack experience, or need to troubleshoot a build problem, check out the links below. Otherwise head over to the [MXC LPWAN App Server Quickstart Guide](https://mxc.wiki/quickstartDev).
 
 # LPWAN App Server (now Chirpstack)
 
