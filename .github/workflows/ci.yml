@@ -24,10 +24,9 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '12'
-
-      - name: Publish
-        run: |
-          - git config --global user.name "${GH_NAME}"
-          - git config --global user.email "${GH_EMAIL}"
-          - echo "machine github.com login ${GH_NAME} password ${GH_TOKEN}" > ~/.netrc
-          - cd website && yarn install && GIT_USER="${GH_NAME}" yarn run publish-gh-pages
+    - name: Publish
+      run: |
+        - git config --global user.name "${GH_NAME}"
+        - git config --global user.email "${GH_EMAIL}"
+        - echo "machine github.com login ${GH_NAME} password ${GH_TOKEN}" > ~/.netrc
+        - cd website && yarn install && GIT_USER="${GH_NAME}" yarn run publish-gh-pages
