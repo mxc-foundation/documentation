@@ -25,4 +25,4 @@ jobs:
         - uses: actions/setup-node@v1
           with:
             node-version: 12
-        - run: GIT_USER="${GH_NAME}" npm run publish-gh-pages
+        - run: GIT_USER="${GH_NAME}" cd website && npm run publish-gh-pages
