@@ -4,7 +4,7 @@ title: How to create an account
 sidebar_label: Create an Account
 ---
 
-To create an MXC Supernode account, you first need to navigate to the MXC supported Supernode of choice. You can find this list on our [Getting Started](https://wiki.mxc.org/docs/en/startingUser) page. Once you're at your chosen supernode, follow these instructions. 
+To create an MXC Supernode account, you first need to navigate to the MXC supported Supernode of choice. You can find this list on our [Getting Started](https://mxc.wiki/docs/en/startingUser) page. Once you're at your chosen supernode, follow these instructions. 
 
 ## Submit your Email Address
 1. Click on "Register"
