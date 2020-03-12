@@ -17,3 +17,20 @@ jobs:
         args: -v -r docs -x localhost
     - name: Fail if there were link errors
       run: exit ${{ steps.lc.outputs.exit_code }}
+
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Publish
+        run: |
+          - git config --global user.name "${GH_NAME}"
+          - git config --global user.email "${GH_EMAIL}"
+          - echo "machine github.com login ${GH_NAME} password ${GH_TOKEN}" > ~/.netrc
+          - cd website && yarn install && GIT_USER="${GH_NAME}" yarn run publish-gh-pages
