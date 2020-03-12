@@ -7,7 +7,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Link Checker
@@ -19,12 +18,13 @@ jobs:
       run: exit ${{ steps.lc.outputs.exit_code }}
 
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
+    - name: Publish
       with:
         node-version: '12'
-    - name: Publish
       run: |
         - git config --global user.name "${GH_NAME}"
         - git config --global user.email "${GH_EMAIL}"
