@@ -42,7 +42,6 @@ const siteConfig = {
     {doc: 'startingUser', label: 'Users'},
     {doc: 'startingDev', label: 'Developers'},
     {doc: 'v.1.0.X', label: 'Release Notes'},
-    {page: 'help', label: 'Support'},
   ],
 
   // If you have users set above, you add it here:

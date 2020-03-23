@@ -19,6 +19,6 @@
     ]
   },
    "release": {
-    "Versions": ["v.1.0.X"]
+    "Versions": ["v.1.0.X", "v.2.0.X"]
   }
 }
