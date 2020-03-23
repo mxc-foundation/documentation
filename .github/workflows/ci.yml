@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Link Checker
+      id: lc
+      uses: peter-evans/link-checker@v1
+      with:
+        args: -v -r docs -x localhost
+    - name: Fail if there were link errors
+      run: exit ${{ steps.lc.outputs.exit_code }}
+
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: git config --global user.name ${{ secrets.GH_NAME }}
+      - run: git config --global user.email ${{ secrets.GH_EMAIL }}
+      - run: echo "machine github.com login ${{ secrets.GH_NAME }} password ${{ secrets.GH_TOKEN }}" > ~/.netrc
+      - run: cd website && yarn install && GIT_USER="${{ secrets.GH_NAME }}" yarn run publish-gh-pages

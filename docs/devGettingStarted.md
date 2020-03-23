@@ -13,26 +13,24 @@ with a web-interface and API (RESTful JSON and gRPC) and supports authorization
 by using JWT tokens (optional). Received payloads are published over MQTT
 and payloads can be enqueued by using MQTT or the API.
 
-If you're interested in the pure Chirsptack experience, or need to troubleshoot a build problem, check out the links below. Otherwise head over to the [MXC LPWAN App Server Quickstart Guide](https://mxc.wiki/quickstartDev).
+If you're interested in the pure Chirsptack experience, or need to troubleshoot a build problem, check out the links below. Otherwise head over to the [MXC LPWAN App Server Quickstart Guide](https://mxc.wiki/docs/en/startingDev).
 
-# LPWAN App Server (now Chirpstack)
+# Supernode component downloads
 
 ## Component links
 
-* [LPWAN Gateway Bridge](https://www.loraserver.io/lora-gateway-bridge)
-* [LPWAN Gateway Config](https://www.loraserver/lora-gateway-config)
-* [LPWAN Server](https://www.loraserver.io/loraserver/)
-* [LPWAN App Server](https://www.loraserver.io/lora-app-server/)
+* [LPWAN Gateway Bridge](https://www.chirpstack.io/gateway-bridge/overview/)
+* [LPWAN Gateway Config](https://www.chirpstack.io/guides/first-gateway-device/)
+* [LPWAN Server](https://www.chirpstack.io/network-server/overview/)
+* [LPWAN App Server](https://www.chirpstack.io/application-server/overview/)
 
 ## Links
 
-* [Downloads](https://www.loraserver.io/lora-app-server/overview/downloads/)
-* [Docker image](https://hub.docker.com/r/loraserver/lora-app-server/)
-* [Documentation & screenshots](https://www.loraserver.io/lora-app-server/) and [Getting started](https://www.loraserver.io/lora-app-server/getting-started/)
-* [Building from source](https://www.loraserver.io/lora-app-server/community/source/)
-* [Contributing](https://www.loraserver.io/lora-app-server/community/contribute/)
+* [Docker image](https://hub.docker.com/r/mxcdocker/supernode)
+* [Documentation & screenshots](https://github.com/mxc-foundation/lpwan-app-server.git) and [Getting started](https://github.com/mxc-foundation/lpwan-app-server/blob/master/README.md)
+* [Contributing](https://github.com/mxc-foundation/lpwan-app-server.git)
 * Support
-  * [Support forum](https://forum.loraserver.io)
+  * [Overview](https://mxc.wiki/en/help)
   * [Bug or feature requests](https://github.com/mxc-foundation/lpwan-app-server/issues)
 
 ## License

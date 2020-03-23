@@ -1,3 +1,5 @@
+![CI](https://github.com/mxc-foundation/documentation/workflows/CI/badge.svg?branch=master)
+
 # MXC Documentation & Participation
 MXC Documentation uses Docusaurus. Which means it's really easy for you, dear community members, to submit documentation suggestions and updates. Here are some quick tips on how to do this. 
 

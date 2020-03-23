@@ -11,7 +11,7 @@ Yes. That is, if you ever plan to participate in MXC Staking, you'll need an acc
 
 * [MatchX Supernode (Germany)](https://supernode.matchx.io)
 * [Huawei Tech Supernode (China)](https://www.hunanhuaweikeji.com)
-* [Enlink Supernode (Korea)](https://www.rosanetworks.com)
+* [Enlink Supernode (Korea)](https://lora.rosanetworks.com)
 
 ## Organization Structure
 When creating a new user through the "Register" option, you are also creating a new organization. Organizations are designed to be functional for multiple users managing LPWAN devices for an organization or compamy. For this puprose, each organization has one M2M Wallet used for all of it's devices. Organizations can:
