@@ -16,4 +16,15 @@ For gateways implementing the v2 reference design which support geolocation capa
 
 When the fine-timestamp AES decryption key is configured, ChirpStack Network Server will automatically decrypt the fine-timestamp once it receives an uplink frame from this gateway.
 
+## Connecting your Gateway with the Supernode
+When creating a gateway, you need to complete the following required fields:
+
+* Gateway Name
+* Gateway Description
+* Gateway ID
+
+The Gateway ID is the 64 bit version of the Gateway MAC Address.
+
+![Gateway Configuration](assets/GatewayAssets.png)
+
 *Our user documentation is adapted from the open-source project [Chirpstack](https://www.chirpstack.io/application-server/use/)*
