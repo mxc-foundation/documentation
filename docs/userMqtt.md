@@ -1,6 +1,6 @@
 ---
 id: mqtt
-title: MQTTT
+title: MQTT
 sidebar_label: MQTT
 ---
 
