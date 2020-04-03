@@ -18,6 +18,8 @@ jobs:
       run: exit ${{ steps.lc.outputs.exit_code }}
 
   publish:
+    if: ${{ github.ref == 'master' }}
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
