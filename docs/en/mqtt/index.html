@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>MQTTT · MXC Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Subscription "/><meta name="docsearch:language" content="en"/><meta property="og:title" content="MQTTT · MXC Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="mxc.wiki/"/><meta property="og:description" content="## Subscription "/><meta property="og:image" content="mxc.wiki/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="mxc.wiki/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/favicon.ico" alt="MXC Documentation"/><h2 class="headerTitleWithLogo">MXC Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/en/startingUser" target="_self">Users</a></li><li class=""><a href="/docs/en/startingDev" target="_self">Developers</a></li><li class=""><a href="/docs/en/v.1.0.X" target="_self">Release Notes</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/zh-CN/mqtt">中文</a></li><li><a href="/docs/zh-TW/mqtt">繁體中文</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Integrations</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/startingUser">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/docs/en/userCreateAccount">Create an Account</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">M2M Wallet</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/userM2mWallet">Wallet Balance</a></li><li class="navListItem"><a class="navItem" href="/docs/en/userStaking">Staking</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">LPWAN Management</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/userLPWAN">Managing Gateways &amp; Devices</a></li><li class="navListItem"><a class="navItem" href="/docs/en/serviceProfiles">Service Profiles</a></li><li class="navListItem"><a class="navItem" href="/docs/en/deviceProfiles">Device Profiles</a></li><li class="navListItem"><a class="navItem" href="/docs/en/applications">Applications</a></li><li class="navListItem"><a class="navItem" href="/docs/en/multicastGroups">Multicast Groups</a></li><li class="navListItem"><a class="navItem" href="/docs/en/devices">Devices</a></li><li class="navListItem"><a class="navItem" href="/docs/en/gateway">Gateways</a></li><li class="navListItem"><a class="navItem" href="/docs/en/frameLogging">Frame logging</a></li><li class="navListItem"><a class="navItem" href="/docs/en/eventLogging">Event Logging</a></li><li class="navListItem"><a class="navItem" href="/docs/en/firmwareUpdate">Firmware Updates</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Integrations</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/docs/en/mqtt">MQTT</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">MQTTT</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="subscription"></a><a href="#subscription" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Subscription</h2>
+<p>Users can subscribe to MQTT broker under topics in the servers after authentication. Before that, you need to make sure you have mosquitto package installed. Use the package manager apt to install these dependencies on the Ubuntu 18.04 LTS server:</p>
+<pre><code class="hljs">sudo apt-<span class="hljs-built_in">add</span>-repository <span class="hljs-keyword">pp</span><span class="hljs-variable">a:mosquitto</span>-dev/mosquitto-ppa
+sudo apt-<span class="hljs-built_in">get</span> <span class="hljs-keyword">update</span>
+sudo apt install mosquitto mosquitto-clients
+</code></pre>
+<p>You can either subscribe to the broker in your console or you can use package for Subscription inside your program. User will given the access to all the topics under the application domain if the user is active and is application admin.</p>
+<p>An example of subscribing to the topic will be:</p>
+<pre><code class="hljs"># <span class="hljs-keyword">Admin</span> have <span class="hljs-keyword">full</span> <span class="hljs-keyword">access</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">all</span> the application topics
+# thus here we can <span class="hljs-keyword">access</span> <span class="hljs-keyword">all</span> the messages <span class="hljs-keyword">from</span> <span class="hljs-keyword">all</span> the nodes
+mosquitto_sub -h SUPERNODE_URL -p <span class="hljs-number">8883</span> -t "#" -v -u "admin_username" -P "admin_password" -i "`hostname`-$$"
+
+# Application <span class="hljs-keyword">Admin</span> have <span class="hljs-keyword">access</span> <span class="hljs-keyword">to</span> the topics under application <span class="hljs-number">201</span>
+# thus here we can <span class="hljs-keyword">only</span> <span class="hljs-keyword">access</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">all</span> the nodes <span class="hljs-keyword">in</span> application <span class="hljs-number">201</span>
+mosquitto_sub -h SUPERNODE_URL -p <span class="hljs-number">8883</span> -t "application/201/#" -v -u "app_username" -P "app_password" -i "`hostname`-$$"
+</code></pre>
+<p>Don't forget to replace SUPERNODE_URL with the URL of the supernode you are attempting to connect with.</p>
+<h2><a class="anchor" aria-hidden="true" id="uplink-payload-data-format"></a><a href="#uplink-payload-data-format" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Uplink Payload Data Format</h2>
+<p>After you sucessfully subscribe to the MQTT broker, then you would possibly see something in your console as follow:</p>
+<pre><code class="hljs"><span class="hljs-comment"># data field in json is your payload</span>
+{<span class="hljs-string">"applicationID"</span><span class="hljs-symbol">:<span class="hljs-string">"201"</span></span>,<span class="hljs-string">"applicationName"</span><span class="hljs-symbol">:<span class="hljs-string">"APP_NAME"</span></span>,<span class="hljs-string">"nodeName"</span><span class="hljs-symbol">:<span class="hljs-string">"stick-0005"</span></span>,<span class="hljs-string">"devEUI"</span><span class="hljs-symbol">:<span class="hljs-string">"001122fffe334455"</span></span>,<span class="hljs-string">"rxInfo"</span><span class="hljs-symbol">:</span>[{<span class="hljs-string">"mac"</span><span class="hljs-symbol">:<span class="hljs-string">"667788fffe99aabb"</span></span>,<span class="hljs-string">"rssi"</span><span class="hljs-symbol">:-</span><span class="hljs-number">108</span>,<span class="hljs-string">"loRaSNR"</span><span class="hljs-symbol">:-</span><span class="hljs-number">9.8</span>,<span class="hljs-string">"name"</span><span class="hljs-symbol">:<span class="hljs-string">"Gateway 667788fffe99aabb"</span></span>,<span class="hljs-string">"latitude"</span><span class="hljs-symbol">:</span><span class="hljs-number">52.5201761</span>,<span class="hljs-string">"longitude"</span><span class="hljs-symbol">:</span><span class="hljs-number">13.4036008</span>,<span class="hljs-string">"altitude"</span><span class="hljs-symbol">:</span>0}],<span class="hljs-string">"txInfo"</span><span class="hljs-symbol">:</span>{<span class="hljs-string">"frequency"</span><span class="hljs-symbol">:</span><span class="hljs-number">867500000</span>,<span class="hljs-string">"dataRate"</span><span class="hljs-symbol">:</span>{<span class="hljs-string">"modulation"</span><span class="hljs-symbol">:<span class="hljs-string">"LORA"</span></span>,<span class="hljs-string">"bandwidth"</span><span class="hljs-symbol">:</span><span class="hljs-number">125</span>,<span class="hljs-string">"spreadFactor"</span><span class="hljs-symbol">:</span><span class="hljs-number">11</span>},<span class="hljs-string">"adr"</span><span class="hljs-symbol">:true</span>,<span class="hljs-string">"codeRate"</span><span class="hljs-symbol">:<span class="hljs-string">"4/5"</span></span>},<span class="hljs-string">"fCnt"</span><span class="hljs-symbol">:</span><span class="hljs-number">11</span>,<span class="hljs-string">"fPort"</span><span class="hljs-symbol">:</span><span class="hljs-number">1</span>,<span class="hljs-string">"data"</span><span class="hljs-symbol">:<span class="hljs-string">"IdccAQH81OABb7V6AIEC"</span></span>}
+</code></pre>
+<p>Then you can try to parse the data use the following specifications:</p>
+<pre><code class="hljs">echo IdccAQH81OABb7V6AIEC | base64 --decode | hexdump -C
+<span class="hljs-number">00000000</span>  <span class="hljs-number">21</span> d7 <span class="hljs-number">1</span>c <span class="hljs-number">01</span> <span class="hljs-number">01</span> fc d4 e0  <span class="hljs-number">01</span> <span class="hljs-number">6f</span> b5 <span class="hljs-number">7</span>a <span class="hljs-number">00</span> <span class="hljs-number">81</span> <span class="hljs-number">02</span>     |!........o.z...|
+<span class="hljs-number">0000000f</span>
+</code></pre>
+<p>The payload is consisting of several commands in a Type-Length-Value (TLV) format. The first byte is consisting of Type (bits [7:4]), defining the command, and Length (bits [3:0]), the length of the arguments in bytes. If the Length bits are 0xF (binary 1111), the command has its length specified in bits [5:0] of the second byte.</p>
+<table>
+<thead>
+<tr><th>Number</th><th>Name</th><th>Length</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>Param value</td><td>&gt;=2</td><td>Response to the &quot;Get params&quot; command. The first byte is the param number, the rest are the value.</td></tr>
+<tr><td>1</td><td>Sensor data</td><td>&gt;=1</td><td>Sensor data.</td></tr>
+<tr><td>2</td><td>Battery level</td><td>1</td><td>Battery level in 10mV steps from 2V (0 = 2V, 255 = 4.55V).</td></tr>
+</tbody>
+</table>
+<p>Sensor data consists of a byte signifying the sensor type, as defined in sensor.c, and zero or more bytes of sensor data. The defined types and corresponding data formats are:</p>
+<table>
+<thead>
+<tr><th>Number</th><th>Name</th><th>Length</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>Unknown</td><td>0</td><td>No data.</td></tr>
+<tr><td>1</td><td>GPS</td><td>11</td><td>GPS coordinates.</td></tr>
+<tr><td>2</td><td>Temp</td><td>1</td><td>Temperature.</td></tr>
+</tbody>
+</table>
+<p>GPS data format is as follows:</p>
+<table>
+<thead>
+<tr><th>Offset</th><th>Length</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>1</td><td>$GPGGA Position Fix Indicator.  Possible values are: <br>* 0 Fix not available or invalid<br> * 1 GPS SPS Mode, fix valid<br> * 2 Differential GPS, SPS Mode, fix valid <br>* 6 Dead Reckoning Mode, fix valid</td></tr>
+<tr><td>1</td><td>4</td><td>Lattitude in 1/1000 of minutes, as little-endian int32. Positive is north, negative is south. To get the value in degrees, divide by 600000.</td></tr>
+<tr><td>5</td><td>4</td><td>Longitude in 1/1000 of minutes, as little-endian int32. Positive is east, negative is west. To get the value in degrees, divide by 600000.</td></tr>
+<tr><td>9</td><td>2</td><td>Altitude above geoid mean sea level in decimetres (0.1m), as little-endian int16.</td></tr>
+</tbody>
+</table>
+<p>Temperature data format is as follows:</p>
+<table>
+<thead>
+<tr><th>Offset</th><th>Length</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>1</td><td>Temperature in degrees Celsius as a signed int8_t, giving the range between -128 and +127. Temperatures outside this range are not sent.</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="publishing"></a><a href="#publishing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Publishing</h2>
+<p>To send messages to the nodes, publish to MQTT topic:</p>
+<pre><code class="hljs"><span class="hljs-comment"># To send a message to a node, issue the following command:</span>
+<span class="hljs-attribute">mosquitto_pub</span> -h SUPERNODE_URL -p 8883  -u <span class="hljs-string">"ADMIN_USERNAME"</span> -P <span class="hljs-string">"ADMIN_PASSWORD"</span> -i <span class="hljs-string">"`hostname`-$$"</span> -t <span class="hljs-string">"application/201/node/NODE_DEVEUI/tx"</span> -m '{<span class="hljs-string">"applicationID"</span>:<span class="hljs-string">"201"</span>,<span class="hljs-string">"devEUI"</span>:<span class="hljs-string">"NODE_DEVEUI"</span>,<span class="hljs-string">"fPort"</span>:1,<span class="hljs-string">"data"</span>:<span class="hljs-string">"DATA_IN_BASE64"</span>}'
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="downlink-payload-data-format"></a><a href="#downlink-payload-data-format" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Downlink Payload Data Format</h2>
+<p>Payload is consisting of several commands in a Type-Length-Value (TLV) format. The first byte is consisting of Type (bits [7:4]), defining the command, and Length (bits [3:0]), the length of the arguments in bytes. If the Length bits are 0xF (binary 1111), the command has its length specified in bits [5:0] of the second byte.</p>
+<table>
+<thead>
+<tr><th>Number</th><th>Name</th><th>Length</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>Get params</td><td>1</td><td>Get parameter described by first byte.</td></tr>
+<tr><td>1</td><td>Set params</td><td>&gt;=2</td><td>Set parameter described by first byte to the value specified in the rest of the message.</td></tr>
+<tr><td>2</td><td>Reboot</td><td>0</td><td>Reboot the node immediately.</td></tr>
+<tr><td>1</td><td>Reboot/upgrade</td><td>1</td><td>Reboot the node after the specified timeout; optionally turn BLE and SUOTA on for upgrades. The argument is as follows:bit [7]:0: just reboot1: BLE onbits [6:3]: Reservedbits [2:0]: Timeout0: TBD1: 5 minutes2: 15 minutes3: 30 minutes4: 1 hour5: 2 hours6: 4 hours7: TBD</td></tr>
+</tbody>
+</table>
+<p>Parameters are as follows:</p>
+<table>
+<thead>
+<tr><th>Number</th><th>Name</th><th>Length</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>deveui</td><td>6</td><td>DevEUI-48 and BLE MAC address (MSBF)</td></tr>
+<tr><td>1</td><td>appeui</td><td>8</td><td>AppEUI-64 (MSBF)</td></tr>
+<tr><td>2</td><td>appkey</td><td>16</td><td>AppKey (write-only)</td></tr>
+<tr><td>3</td><td>period</td><td>1</td><td>Sensor period</td></tr>
+<tr><td>4</td><td>sf</td><td>1</td><td>Minimal LoRa Spread Factor (valid values: 7-12)</td></tr>
+</tbody>
+</table>
+<p>Parameters 0, 1, 2 and 4 are actualized after reboot.</p>
+<p>Sensor period is as follows:</p>
+<table>
+<thead>
+<tr><th>Number</th><th>Period</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>Default</td></tr>
+<tr><td>1</td><td>10 sec</td></tr>
+<tr><td>2</td><td>30 sec</td></tr>
+<tr><td>3</td><td>1 min</td></tr>
+<tr><td>4</td><td>2 min</td></tr>
+<tr><td>5</td><td>5 min</td></tr>
+<tr><td>6</td><td>10 min</td></tr>
+<tr><td>7</td><td>30 min</td></tr>
+<tr><td>8</td><td>1 hour</td></tr>
+<tr><td>9</td><td>2 hours</td></tr>
+<tr><td>10</td><td>5 hours</td></tr>
+<tr><td>11</td><td>12 hours</td></tr>
+</tbody>
+</table>
+<pre><code class="hljs"><span class="hljs-comment"># E.g., to set sensor period of node 001122fffe334455 to 5 minutes, compose the following message:</span>
+<span class="hljs-comment"># 02  Type = 0 (Set param), Len = 2 (2 bytes follow: 1 for param index, 1 for value)</span>
+<span class="hljs-comment"># 03  Param = 03 (Sensor period)</span>
+<span class="hljs-comment"># 05  Value = 05 (5 min)</span>
+<span class="hljs-comment"># This gives us 020305 in hex, which encoded as base-64 is "AgMF".</span>
+<span class="hljs-comment"># To send the message to the node, issue the following command:</span>
+<span class="hljs-attribute">mosquitto_pub</span> -h S -p 8883  -u <span class="hljs-string">"ADMIN_USERNAME"</span> -P <span class="hljs-string">"ADMIN_PASSWORD"</span> -i <span class="hljs-string">"`hostname`-$$"</span> -t <span class="hljs-string">"application/201/node/001122fffe334455/tx"</span> -m '{<span class="hljs-string">"applicationID"</span>:<span class="hljs-string">"201"</span>,<span class="hljs-string">"devEUI"</span>:<span class="hljs-string">"001122fffe334455"</span>,<span class="hljs-string">"fPort"</span>:1,<span class="hljs-string">"data"</span>:<span class="hljs-string">"AgMF"</span>}'
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/firmwareUpdate"><span class="arrow-prev">← </span><span>Firmware Updates</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#subscription">Subscription</a></li><li><a href="#uplink-payload-data-format">Uplink Payload Data Format</a></li><li><a href="#publishing">Publishing</a></li><li><a href="#downlink-payload-data-format">Downlink Payload Data Format</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="MXC Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/startingDev.html">Getting Started for Developers</a><a href="/docs/en/startingUser.html">Getting Started for Users</a></div><div><h5>Community</h5><a href="https://discord.gg/fbyCMa3" target="_blank" rel="noreferrer noopener">Developers on Discord</a><a href="https://discord.gg/fbyCMa3" target="_blank" rel="noreferrer noopener">Users on Discord</a><a href="https://t.me/mxcfoundation">Project Chat</a><a href="https://twitter.com/mxcfoundation" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="https://github.com/orgs/mxc-foundation/">GitHub</a><a class="github-button" href="https://github.com/mxc-foundation/lpwan-app-server" data-icon="octicon-star" data-count-href="/mxc-foundation/lpwan-app-server" data-show-count="true" data-count-aria-label="# MXC on GitHub" aria-label="Star this project on GitHub">Star</a><div class="social"><a href="https://twitter.com/mxcfoundation" class="twitter-follow-button">Follow @mxcfoundation</a></div></div></section><section class="copyright">Copyright © 2020 MXC Foundation gGmbH</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
