@@ -19,11 +19,11 @@ An example of subscribing to the topic will be:
 ```
 # Admin have full access to all the application topics
 # thus here we can access all the messages from all the nodes
-mosquitto_sub -h SUPERNODE_URL -p 8883 -t "#" -v -u "admin_username" -P "admin_password" -i "`hostname`-$$"
+mosquitto_sub -h SUPERNODE_URL -p 8883 -t "#" -v  -u "admin_username" -P "admin_password" -i "`hostname`-$$" --capath /etc/ssl/certs
 
 # Application Admin have access to the topics under application 201
 # thus here we can only access to all the nodes in application 201
-mosquitto_sub -h SUPERNODE_URL -p 8883 -t "application/201/#" -v -u "app_username" -P "app_password" -i "`hostname`-$$"
+mosquitto_sub -h SUPERNODE_URL -p 8883 -t "application/201/#" -v -u "app_username" -P "app_password" -i "`hostname`-$$" --capath /etc/ssl/certs
 ```
 
 Don't forget to replace SUPERNODE_URL with the URL of the supernode you are attempting to connect with.
