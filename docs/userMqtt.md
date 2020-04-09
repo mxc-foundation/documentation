@@ -28,6 +28,8 @@ mosquitto_sub -h SUPERNODE_URL -p 8883 -t "application/201/#" -v -u "app_usernam
 
 Don't forget to replace SUPERNODE_URL with the URL of the supernode you are attempting to connect with.
 
+If you wish to connect to MQTT, contact us at support@mxc.org to get your unique MQTT username and password.
+
 ## Uplink Payload Data Format
 
 After you sucessfully subscribe to the MQTT broker, then you would possibly see something in your console as follow:
