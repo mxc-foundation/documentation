@@ -17,12 +17,7 @@
       "eventLogging",
       "firmwareUpdate"
     ],
-    "Integrations": [
-      "mqtt"
-    ],
-    "Additional Information": [
-      "userRegParamFreqPlan"
-    ]
+    "Integrations": ["mqtt"]
   },
    "release": {
     "Versions": ["v.1.0.X"]
