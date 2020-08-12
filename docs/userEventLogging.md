@@ -14,7 +14,7 @@ As soon as you open this page, Supernode Application Server will subscribe to th
 
 Note that all the displayed data can be expanded by clicking on each key. E.g. **> payload: {} 9 keys** means you can expand this payload item as it has nine sub-items.
 
-The payloads that are exposed are documented by the [Sending and Receiving page](https://www.chirpstack.io/application-server/integrate/sending-receiving/). You will also find examples on this page.
+The payloads that are exposed are documented by the [Sending and Receiving page](https://www.chirpstack.io/application-server/integrations/events/). You will also find examples on this page.
 
 ---
 
