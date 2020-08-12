@@ -10,4 +10,4 @@ When creating a Service Profile, the supernode will create the actual profile on
 
 ---
 
-*Our user documentation is adapted from the open-source project [Chirpstack](https://www.chirpstack.io/application-server/use/)*
+_Our user documentation is adapted from the open-source project [Chirpstack](https://www.chirpstack.io/application-server/)_
