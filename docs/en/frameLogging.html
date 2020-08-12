@@ -84,60 +84,60 @@
 <p>Frames displayed are not stored in a database. As soon as you refresh the page, all data is gone. If you need to store these frames, you can use the download button which will generate a JSON formatted file containing all the frames that are logged since opening the Live frame logs tab.</p>
 <h3><a class="anchor" aria-hidden="true" id="example-json-output"></a><a href="#example-json-output" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example JSON output</h3>
 <pre><code class="hljs css language-js">[
-    {
-        <span class="hljs-string">"uplinkMetaData"</span>: {
-            <span class="hljs-string">"rxInfo"</span>: [
-                {
-                    <span class="hljs-string">"mac"</span>: <span class="hljs-string">"0102030405060708"</span>,
-                    <span class="hljs-string">"time"</span>: <span class="hljs-string">"2018-02-13T14:00:00.683952Z"</span>,
-                    <span class="hljs-string">"timeSinceGPSEpoch"</span>: <span class="hljs-string">""</span>,
-                    <span class="hljs-string">"timestamp"</span>: <span class="hljs-number">123456</span>,
-                    <span class="hljs-string">"rssi"</span>: <span class="hljs-number">-150</span>,
-                    <span class="hljs-string">"loRaSNR"</span>: <span class="hljs-number">-7</span>,
-                    <span class="hljs-string">"board"</span>: <span class="hljs-number">0</span>,
-                    <span class="hljs-string">"antenna"</span>: <span class="hljs-number">0</span>
-                }
-            ],
-            <span class="hljs-string">"txInfo"</span>: {
-                <span class="hljs-string">"frequency"</span>: <span class="hljs-number">868300000</span>,
-                <span class="hljs-string">"dataRate"</span>: {
-                    <span class="hljs-string">"modulation"</span>: <span class="hljs-string">"LORA"</span>,
-                    <span class="hljs-string">"bandwidth"</span>: <span class="hljs-number">125</span>,
-                    <span class="hljs-string">"spreadFactor"</span>: <span class="hljs-number">12</span>,
-                    <span class="hljs-string">"bitrate"</span>: <span class="hljs-number">0</span>
-                },
-                <span class="hljs-string">"codeRate"</span>: <span class="hljs-string">"4/5"</span>
-            }
+  {
+    <span class="hljs-attr">uplinkMetaData</span>: {
+      <span class="hljs-attr">rxInfo</span>: [
+        {
+          <span class="hljs-attr">mac</span>: <span class="hljs-string">'0102030405060708'</span>,
+          <span class="hljs-attr">time</span>: <span class="hljs-string">'2018-02-13T14:00:00.683952Z'</span>,
+          <span class="hljs-attr">timeSinceGPSEpoch</span>: <span class="hljs-string">''</span>,
+          <span class="hljs-attr">timestamp</span>: <span class="hljs-number">123456</span>,
+          <span class="hljs-attr">rssi</span>: <span class="hljs-number">-150</span>,
+          <span class="hljs-attr">loRaSNR</span>: <span class="hljs-number">-7</span>,
+          <span class="hljs-attr">board</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-attr">antenna</span>: <span class="hljs-number">0</span>,
         },
-        <span class="hljs-string">"phyPayload"</span>: {
-            <span class="hljs-string">"mhdr"</span>: {
-                <span class="hljs-string">"mType"</span>: <span class="hljs-string">"UnconfirmedDataUp"</span>,
-                <span class="hljs-string">"major"</span>: <span class="hljs-string">"LoRaWANR1"</span>
-            },
-            <span class="hljs-string">"macPayload"</span>: {
-                <span class="hljs-string">"fhdr"</span>: {
-                    <span class="hljs-string">"devAddr"</span>: <span class="hljs-string">"01020304"</span>,
-                    <span class="hljs-string">"fCtrl"</span>: {
-                        <span class="hljs-string">"adr"</span>: <span class="hljs-literal">false</span>,
-                        <span class="hljs-string">"adrAckReq"</span>: <span class="hljs-literal">false</span>,
-                        <span class="hljs-string">"ack"</span>: <span class="hljs-literal">false</span>,
-                        <span class="hljs-string">"fPending"</span>: <span class="hljs-literal">false</span>
-                    },
-                    <span class="hljs-string">"fCnt"</span>: <span class="hljs-number">1234</span>,
-                    <span class="hljs-string">"fOpts"</span>: <span class="hljs-literal">null</span>
-                },
-                <span class="hljs-string">"fPort"</span>: <span class="hljs-number">1</span>,
-                <span class="hljs-string">"frmPayload"</span>: [
-                    {
-                        <span class="hljs-string">"bytes"</span>: <span class="hljs-string">"..."</span>
-                    }
-                ]
-            },
-            <span class="hljs-string">"mic"</span>: <span class="hljs-string">"04030201"</span>
-        }
-    }
-]
+      ],
+      <span class="hljs-attr">txInfo</span>: {
+        <span class="hljs-attr">frequency</span>: <span class="hljs-number">868300000</span>,
+        <span class="hljs-attr">dataRate</span>: {
+          <span class="hljs-attr">modulation</span>: <span class="hljs-string">'LORA'</span>,
+          <span class="hljs-attr">bandwidth</span>: <span class="hljs-number">125</span>,
+          <span class="hljs-attr">spreadFactor</span>: <span class="hljs-number">12</span>,
+          <span class="hljs-attr">bitrate</span>: <span class="hljs-number">0</span>,
+        },
+        <span class="hljs-attr">codeRate</span>: <span class="hljs-string">'4/5'</span>,
+      },
+    },
+    <span class="hljs-attr">phyPayload</span>: {
+      <span class="hljs-attr">mhdr</span>: {
+        <span class="hljs-attr">mType</span>: <span class="hljs-string">'UnconfirmedDataUp'</span>,
+        <span class="hljs-attr">major</span>: <span class="hljs-string">'LoRaWANR1'</span>,
+      },
+      <span class="hljs-attr">macPayload</span>: {
+        <span class="hljs-attr">fhdr</span>: {
+          <span class="hljs-attr">devAddr</span>: <span class="hljs-string">'01020304'</span>,
+          <span class="hljs-attr">fCtrl</span>: {
+            <span class="hljs-attr">adr</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">adrAckReq</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">ack</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">fPending</span>: <span class="hljs-literal">false</span>,
+          },
+          <span class="hljs-attr">fCnt</span>: <span class="hljs-number">1234</span>,
+          <span class="hljs-attr">fOpts</span>: <span class="hljs-literal">null</span>,
+        },
+        <span class="hljs-attr">fPort</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">frmPayload</span>: [
+          {
+            <span class="hljs-attr">bytes</span>: <span class="hljs-string">'...'</span>,
+          },
+        ],
+      },
+      <span class="hljs-attr">mic</span>: <span class="hljs-string">'04030201'</span>,
+    },
+  },
+];
 </code></pre>
 <hr>
-<p><em>Our user documentation is adapted from the open-source project <a href="https://www.chirpstack.io/application-server/use/">Chirpstack</a></em></p>
+<p><em>Our user documentation is adapted from the open-source project <a href="https://www.chirpstack.io/application-server/">Chirpstack</a></em></p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/gateway"><span class="arrow-prev">← </span><span>Gateways</span></a><a class="docs-next button" href="/docs/en/eventLogging"><span>Event Logging</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#exposed-information">Exposed information</a></li><li><a href="#storing-frames">Storing frames</a><ul class="toc-headings"><li><a href="#example-json-output">Example JSON output</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="MXC Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/startingDev.html">Getting Started for Developers</a><a href="/docs/en/startingUser.html">Getting Started for Users</a></div><div><h5>Community</h5><a href="https://discord.gg/fbyCMa3" target="_blank" rel="noreferrer noopener">Developers on Discord</a><a href="https://discord.gg/fbyCMa3" target="_blank" rel="noreferrer noopener">Users on Discord</a><a href="https://t.me/mxcfoundation">Project Chat</a><a href="https://twitter.com/mxcfoundation" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="https://github.com/orgs/mxc-foundation/">GitHub</a><a class="github-button" href="https://github.com/mxc-foundation/lpwan-app-server" data-icon="octicon-star" data-count-href="/mxc-foundation/lpwan-app-server" data-show-count="true" data-count-aria-label="# MXC on GitHub" aria-label="Star this project on GitHub">Star</a><div class="social"><a href="https://twitter.com/mxcfoundation" class="twitter-follow-button">Follow @mxcfoundation</a></div></div></section><section class="copyright">Copyright © 2020 MXC Foundation gGmbH</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>

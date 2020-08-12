@@ -16,7 +16,6 @@
         <summary type="html"><![CDATA[<p>Our 1.0.4 release improves both gateway and device management in MXC Supernodes by squashing more abnoxious bugs. These included:</p> <ul> <li>Setting requirements for application names (so that you can add applications)</li> <li>Gateway profile detail not appearing for ...</li></ul>]]></summary>
         <author>
             <name>Jeff Stahlnecker</name>
-            <email/>
             <uri>https://www.linkedin.com/in/jstahlnecker/</uri>
         </author>
     </entry>
@@ -28,7 +27,6 @@
         <summary type="html"><![CDATA[<p>This release fixes the following bugs:</p> <ul> <li>Create gateway generating an unknown error</li> <li>Update gateway generating an unknown error</li> <li>Create gateway button unresponsive for some users</li> </ul> ]]></summary>
         <author>
             <name>Jeff Stahlnecker</name>
-            <email/>
             <uri>https://www.linkedin.com/in/jstahlnecker/</uri>
         </author>
     </entry>
@@ -40,7 +38,6 @@
         <summary type="html"><![CDATA[<p>It's anoter bug squashing update! For this release we focused on cleaning up the new UI. Specific fixes include:</p> <ul> <li>Updated translations</li> <li>Updated sidebar for Supernode Operators</li> <li>Repaired a bug with user registration</li> <li>Cleaned up misc. error stream on logi...</li></ul>]]></summary>
         <author>
             <name>Jeff Stahlnecker</name>
-            <email/>
             <uri>https://www.linkedin.com/in/jstahlnecker/</uri>
         </author>
     </entry>
@@ -53,7 +50,6 @@
 ]]></summary>
         <author>
             <name>Jeff Stahlnecker</name>
-            <email/>
             <uri>https://www.linkedin.com/in/jstahlnecker/</uri>
         </author>
     </entry>
