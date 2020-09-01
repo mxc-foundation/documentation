@@ -6,7 +6,37 @@ sidebar_label: Quickstart
 
 # LPWAN App Server
 
-## Environment
+## Requirements to run a supernode (provide the information to MXC DevOps)
+
+Launch a minimal Ubuntu 18 x64 server/instance with
+  - minimum 2xCPU/4GbRAM/30GbSSD
+  - an external STATIC IP (Elastic IP) assigned
+  
+Create a user account with sudo permissions
+
+Setup a DNS A record in your DNS zone which is used for the Supernode URL and point it to the static IP
+  - Eg: my.supernode.test -> 1.2.3.4
+
+Signup for an email service from your provider (or gather smtp details if exists already) and save the following information:
+  - Sender email:
+  - Password:
+  - SMTP server:
+  - Port: (25 or 465 supported)
+
+Configure Firewall rules (Security Group when using cloud provider)
+  - TCP/22: ssh access for management of supernode
+  - TCP/80: Supernode Application Server UI and API
+  - TCP/443: Supernode Application Server UI and API
+  - UDP/1700: UDP listener for the packet-forwarder data from/to Gateways and Devices
+  - TCP/8883: MQTT
+  - TCP/8004: Supernode API GWs
+  - TCP/8005: Supernode API GWs
+  - TCP/9100: Host monitoring
+  - TCP/8088: Container monitoring 
+
+Provide a company logo in .png format which is used for the Supernode GUI
+
+## Environment for development work
 
 #### Set up docker
 - [Install Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)  
