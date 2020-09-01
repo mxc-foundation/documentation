@@ -13,7 +13,9 @@ Yes. That is, if you ever plan to participate in MXC Staking, you'll need an acc
 - [MatchX Supernode (Germany)](https://lora.supernode.matchx.io)
 - [Huawei Tech Supernode (China)](https://www.hunanhuaweikeji.com)
 - [Enlink Supernode (Korea)](https://lora.rosanetworks.com)
-- [XY Pool](https://mxcxy.com)
+- [XY Pool (China)](https://mxcxy.com)
+- [Sejong Solutech (Korea)](https://k-supernode.com/)
+- [Du IoT (China)](https://supernode.iot-ducapital.net/)
 
 ## Organization Structure
 
