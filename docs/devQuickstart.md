@@ -24,14 +24,14 @@ Signup for an email service from your provider (or gather smtp details if exists
   - Port: (25 or 465 supported)
 
 Configure Firewall rules (Security Group when using cloud provider)
-  - TCP/22: specific ssh access for management of supernode (just ask MXC which IP to restrict it to)
-  - TCP/80: Supernode Application Server UI and API
-  - TCP/443: Supernode Application Server UI and API
-  - UDP/1700: UDP listener for the packet-forwarder data from/to Gateways and Devices
-  - TCP/8883: MQTT
-  - TCP/8004: Supernode API GWs
-  - TCP/8005: Supernode API GWs
-  - TCP/9090: Prometheus monitoring (just ask MXC which IP to restrict it to)
+  - TCP/22:x.x.x.x/x specific ssh access for management of supernode (just ask MXC which IP to restrict it to)
+  - TCP/80:0.0.0.0/0 Supernode Application Server UI and API
+  - TCP/443:0.0.0.0/0 Supernode Application Server UI and API
+  - UDP/1700:0.0.0.0/0 UDP listener for the packet-forwarder data from/to Gateways and Devices
+  - TCP/8883:0.0.0.0/0 MQTT
+  - TCP/8004:0.0.0.0/0 Supernode API GWs
+  - TCP/8005:0.0.0.0/0 Supernode API GWs
+  - TCP/9090:x.x.x.x/x Prometheus monitoring (just ask MXC which IP to restrict it to)
 
 Provide a company logo in .png format which is used for the Supernode GUI
 
