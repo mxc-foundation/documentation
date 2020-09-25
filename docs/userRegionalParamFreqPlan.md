@@ -76,7 +76,7 @@ In case of 8 channel gateways these frequencies are used by default:
 
 #### Uplink
 
-US902-928 uplink channels are defined as follows:
+CN470-510 uplink channels are defined as follows:
 > **Upstream** – 96 channels numbered 0 to 95 utilizing LoRa 125 kHz BW varying from
 1026 DR0 to DR5, using coding rate 4/5, starting at 470.3 MHz and incrementing linearly
 1027 by 200 kHz to 489.3 MHz.
@@ -110,10 +110,114 @@ Where the downlink channels are definde as:
 
 
 ### AU915-928
-TBD
+
+#### Uplink
+
+AU915-928 uplink channels are defined as follows:
+
+> **Upstream** – Upstream – 64 channels numbered 0 to 63 utilizing LoRa 125 kHz BW varying from DR0 to DR5, using coding rate 4/5, starting at 915.2 MHz and incrementing linearly by 200 kHz to 927.8 MHz  
+**Upstream** – 8 channels numbered 64 to 71 utilizing LoRa 500 kHz BW at DR6 starting at 915.9 MHz and incrementing linearly by 1.6 MHz to 927.1 MHz  
+
+In case of 8 channel gateways these frequencies are used by default:
+
+| Channel | Frequency | Data Rate |
+|----------|------------|------------------------------------|
+| 8 | 916.8 MHz | SF7BW125 to SF12BW125|
+| 9 | 917.0 MHz | SF7BW125 to SF12BW125|
+| 10 | 917.2 MHz | SF7BW125 to SF12BW125|
+| 11 | 917.4 MHz | SF7BW125 to SF12BW125|
+| 12 | 917.6 MHz | SF7BW125 to SF12BW125|
+| 13 | 917.8 MHz | SF7BW125 to SF12BW125|
+| 14 | 918.0 MHz | SF7BW125 to SF12BW125|
+| 15 | 918.2 MHz | SF7BW125 to SF12BW125|
+| 65 | 917.5 MHz | SF8BW500|
+
+#### Dowlink
+| Channel | Frequency | Data Rate |
+|----------|------------|------------------------------------|
+| 0 | 923.3 MHz | SF7BW500 to SF12BW500|
+| 1 | 923.9 MHz | SF7BW500 to SF12BW500|
+| 2 | 924.5 MHz | SF7BW500 to SF12BW500|
+| 3 | 925.1 MHz | SF7BW500 to SF12BW500|
+| 4 | 925.7 MHz | SF7BW500 to SF12BW500|
+| 5 | 926.3 MHz | SF7BW500 to SF12BW500|
+| 6 | 926.9 MHz | SF7BW500 to SF12BW500|
+| 7 | 927.5 MHz | SF7BW500 to SF12BW500|
+| 8 | 923.3 MHz | SF12BW500 (RX2)|
+
 ### AS923
-TBD
+
+#### Uplink
+Default Channels:
+
+| Channel | Frequency | Data Rate |
+|----------|------------|------------------------------------|
+| 0 | 923.2 MHz | SF7BW125 to SF12BW125|
+| 1 | 923.4 MHz | SF7BW125 to SF12BW125|
+
+
+Extra Channels:
+| Channel | Frequency | Data Rate |
+|----------|------------|------------------------------------|
+| 2 | 922.2 MHz | SF7BW125 to SF12BW125|
+| 3 | 922.4 MHz | SF7BW125 to SF12BW125|
+| 4 | 922.6 MHz | SF7BW125 to SF12BW125|
+| 5 | 923.8 MHz | SF7BW125 to SF12BW125|
+| 6 | 923.0 MHz | SF7BW125 to SF12BW125|
+| 7 | 922.0 MHz | SF7BW125 to SF12BW125|
+| 8 | 922.1 MHz | SF7BW250|
+| 9 | 921.8 MHz | FSK|
+
+#### Downlink
+
+1. Uplink channels 0-9 (RX1)
+2. 923.2 MHz / DR2 - SF10BW125 (RX2)
+   
 ### KR920-923
-TBD
+
+#### Uplink
+Default Channels:
+
+| Channel | Frequency | Data Rate |
+|----------|------------|------------------------------------|
+| 0 | 922.1 MHz | SF7BW125 to SF12BW125|
+| 1 | 922.3 MHz | SF7BW125 to SF12BW125|
+| 2 | 922.5 MHz | SF7BW125 to SF12BW125|
+
+Extra Channels:
+| Channel | Frequency | Data Rate |
+|----------|------------|------------------------------------|
+| 3 | 922.7 MHz | SF7BW125 to SF12BW125|
+| 4 | 922.9 MHz | SF7BW125 to SF12BW125|
+| 5 | 923.1 MHz | SF7BW125 to SF12BW125|
+| 6 | 923.3 MHz | SF7BW125 to SF12BW125|
+
+#### Downlink
+
+1. Uplink channels 0-6 (RX1)
+2. 921.9 MHz / DR0 - SF12BW125 (RX2 downlink only)
+
+
 ### IN865-867
-TBD
+
+#### Uplink
+Default Channels:
+
+| Channel | Frequency | Data Rate |
+|----------|------------|------------------------------------|
+| 0 | 865.0625 MHz | SF7BW125 to SF12BW125|
+| 1 | 865.4025 MHz | SF7BW125 to SF12BW125|
+| 2 | 865.9850 MHz | SF7BW125 to SF12BW125|
+
+Extra Channels:
+| Channel | Frequency | Data Rate |
+|----------|------------|------------------------------------|
+| 3 | 865.6 MHz | SF7BW125 to SF12BW125|
+| 4 | 865.8 MHz | SF7BW125 to SF12BW125|
+| 5 | 966.2 MHz | SF7BW125 to SF12BW125|
+| 6 | 966.4 MHz | SF7BW125 to SF12BW125|
+
+#### Downlink
+
+1. Uplink channels 0-6 (RX1)
+2. 866.550 - SF10BW125 (RX2)
