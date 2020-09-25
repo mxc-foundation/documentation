@@ -4,8 +4,8 @@
   },
   "users": {
     "Getting Started": ["startingUser", "userCreateAccount"],
-    "M2M Wallet": ["userM2mWallet", "userStaking"],
-    "LPWAN Management": [
+    "MXC DataDash": ["userM2mWallet", "userStaking"],
+    "MXC Controller": [
       "userLPWAN",
       "serviceProfiles",
       "deviceProfiles",
