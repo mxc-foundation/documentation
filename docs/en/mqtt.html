@@ -100,7 +100,7 @@ mosquitto_sub -h SUPERNODE_URL -p <span class="hljs-number">8883</span> -t "appl
 <tr><th>Number</th><th>Name</th><th>Length</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>0</td><td>Param value</td><td>&gt;=2</td><td>Response to the &quot;Get params&quot; command. The first byte is the param number, the rest are the value.</td></tr>
+<tr><td>0</td><td>Param value</td><td>&gt;=2</td><td>Response to the &quot;Get params&quot; command. The first byte is the param number, the rest are the value.</td></tr>
 <tr><td>1</td><td>Sensor data</td><td>&gt;=1</td><td>Sensor data.</td></tr>
 <tr><td>2</td><td>Battery level</td><td>1</td><td>Battery level in 10mV steps from 2V (0 = 2V, 255 = 4.55V).</td></tr>
 </tbody>
@@ -111,36 +111,47 @@ mosquitto_sub -h SUPERNODE_URL -p <span class="hljs-number">8883</span> -t "appl
 <tr><th>Number</th><th>Name</th><th>Length</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>0</td><td>Unknown</td><td>0</td><td>No data.</td></tr>
+<tr><td>0</td><td>Unknown</td><td>0</td><td>No data.</td></tr>
 <tr><td>1</td><td>GPS</td><td>11</td><td>GPS coordinates.</td></tr>
 <tr><td>2</td><td>Temp</td><td>1</td><td>Temperature.</td></tr>
 </tbody>
 </table>
-<p>GPS data format is as follows:</p>
+<p><b>GPS data format is as follows:</b></p>
+<p>[When data length is 1]</p>
 <table>
 <thead>
 <tr><th>Offset</th><th>Length</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>0</td><td>1</td><td>$GPGGA Position Fix Indicator.  Possible values are: <br>* 0 Fix not available or invalid<br> * 1 GPS SPS Mode, fix valid<br> * 2 Differential GPS, SPS Mode, fix valid <br>* 6 Dead Reckoning Mode, fix valid</td></tr>
+<tr><td>0</td><td>1</td><td>Indicates whether the node has moved since last GPS fix.  Possible values are:<br>    0: Node is stable since last GPS fix<br>    1: Node has moved, or has not received a GPS fix since boot; waiting for GPS fix</td></tr>
+</tbody>
+</table>
+<p>[When data length is 11]</p>
+<table>
+<thead>
+<tr><th>Offset</th><th>Length</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>1</td><td>$GPGGA Position Fix Indicator.  Possible values are: <br>* 0 Fix not available or invalid<br> * 1 GPS SPS Mode, fix valid<br> * 2 Differential GPS, SPS Mode, fix valid <br>* 6 Dead Reckoning Mode, fix valid</td></tr>
 <tr><td>1</td><td>4</td><td>Lattitude in 1/1000 of minutes, as little-endian int32. Positive is north, negative is south. To get the value in degrees, divide by 600000.</td></tr>
 <tr><td>5</td><td>4</td><td>Longitude in 1/1000 of minutes, as little-endian int32. Positive is east, negative is west. To get the value in degrees, divide by 600000.</td></tr>
 <tr><td>9</td><td>2</td><td>Altitude above geoid mean sea level in decimetres (0.1m), as little-endian int16.</td></tr>
 </tbody>
 </table>
-<p>Temperature data format is as follows:</p>
+<p><b>Temperature data format is as follows:</b></p>
 <table>
 <thead>
 <tr><th>Offset</th><th>Length</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>0</td><td>1</td><td>Temperature in degrees Celsius as a signed int8_t, giving the range between -128 and +127. Temperatures outside this range are not sent.</td></tr>
+<tr><td>0</td><td>1</td><td>Temperature in degrees Celsius as a signed int8_t, giving the range between -128 and +127. Temperatures outside this range are not sent.</td></tr>
+<tr><td>1</td><td>1</td><td>If present, fractional temperature in 1/256th degrees Celsius as a unsigned uint8_t. Typically only the most significant 3 bits hold a value.</td></tr>
 </tbody>
 </table>
 <h2><a class="anchor" aria-hidden="true" id="publishing"></a><a href="#publishing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Publishing</h2>
 <p>To send messages to the nodes, publish to MQTT topic:</p>
 <pre><code class="hljs"><span class="hljs-comment"># To send a message to a node, issue the following command:</span>
-<span class="hljs-attribute">mosquitto_pub</span> -h SUPERNODE_URL -p 8883  -u <span class="hljs-string">"ADMIN_USERNAME"</span> -P <span class="hljs-string">"ADMIN_PASSWORD"</span> -i <span class="hljs-string">"`hostname`-$$"</span> -t <span class="hljs-string">"application/201/node/NODE_DEVEUI/tx"</span> -m '{<span class="hljs-string">"applicationID"</span>:<span class="hljs-string">"201"</span>,<span class="hljs-string">"devEUI"</span>:<span class="hljs-string">"NODE_DEVEUI"</span>,<span class="hljs-string">"fPort"</span>:1,<span class="hljs-string">"data"</span>:<span class="hljs-string">"DATA_IN_BASE64"</span>}'
+mosquitto_pub -h SUPERNODE_URL -p <span class="hljs-number">8883</span>  -u <span class="hljs-string">"ADMIN_USERNAME"</span> -P <span class="hljs-string">"ADMIN_PASSWORD"</span> -t <span class="hljs-string">"application/201/device/NODE_DEVEUI/tx"</span> -m '{<span class="hljs-string">"confirmed"</span>:<span class="hljs-literal">true</span>,<span class="hljs-string">"fPort"</span>:<span class="hljs-number">1</span>,<span class="hljs-string">"data"</span>:<span class="hljs-string">"DATA_IN_BASE64"</span>}' <span class="hljs-comment">--capath /etc/ssl/certs</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="downlink-payload-data-format"></a><a href="#downlink-payload-data-format" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Downlink Payload Data Format</h2>
 <p>Payload is consisting of several commands in a Type-Length-Value (TLV) format. The first byte is consisting of Type (bits [7:4]), defining the command, and Length (bits [3:0]), the length of the arguments in bytes. If the Length bits are 0xF (binary 1111), the command has its length specified in bits [5:0] of the second byte.</p>
@@ -149,7 +160,7 @@ mosquitto_sub -h SUPERNODE_URL -p <span class="hljs-number">8883</span> -t "appl
 <tr><th>Number</th><th>Name</th><th>Length</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>0</td><td>Get params</td><td>1</td><td>Get parameter described by first byte.</td></tr>
+<tr><td>0</td><td>Get params</td><td>1</td><td>Get parameter described by first byte.</td></tr>
 <tr><td>1</td><td>Set params</td><td>&gt;=2</td><td>Set parameter described by first byte to the value specified in the rest of the message.</td></tr>
 <tr><td>2</td><td>Reboot</td><td>0</td><td>Reboot the node immediately.</td></tr>
 <tr><td>1</td><td>Reboot/upgrade</td><td>1</td><td>Reboot the node after the specified timeout; optionally turn BLE and SUOTA on for upgrades. The argument is as follows:bit [7]:0: just reboot1: BLE onbits [6:3]: Reservedbits [2:0]: Timeout0: TBD1: 5 minutes2: 15 minutes3: 30 minutes4: 1 hour5: 2 hours6: 4 hours7: TBD</td></tr>
@@ -161,7 +172,7 @@ mosquitto_sub -h SUPERNODE_URL -p <span class="hljs-number">8883</span> -t "appl
 <tr><th>Number</th><th>Name</th><th>Length</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>0</td><td>deveui</td><td>6</td><td>DevEUI-48 and BLE MAC address (MSBF)</td></tr>
+<tr><td>0</td><td>deveui</td><td>6</td><td>DevEUI-48 and BLE MAC address (MSBF)</td></tr>
 <tr><td>1</td><td>appeui</td><td>8</td><td>AppEUI-64 (MSBF)</td></tr>
 <tr><td>2</td><td>appkey</td><td>16</td><td>AppKey (write-only)</td></tr>
 <tr><td>3</td><td>period</td><td>1</td><td>Sensor period</td></tr>
@@ -195,6 +206,6 @@ mosquitto_sub -h SUPERNODE_URL -p <span class="hljs-number">8883</span> -t "appl
 <span class="hljs-comment"># 05  Value = 05 (5 min)</span>
 <span class="hljs-comment"># This gives us 020305 in hex, which encoded as base-64 is "AgMF".</span>
 <span class="hljs-comment"># To send the message to the node, issue the following command:</span>
-<span class="hljs-attribute">mosquitto_pub</span> -h S -p 8883  -u <span class="hljs-string">"ADMIN_USERNAME"</span> -P <span class="hljs-string">"ADMIN_PASSWORD"</span> -i <span class="hljs-string">"`hostname`-$$"</span> -t <span class="hljs-string">"application/201/node/001122fffe334455/tx"</span> -m '{<span class="hljs-string">"applicationID"</span>:<span class="hljs-string">"201"</span>,<span class="hljs-string">"devEUI"</span>:<span class="hljs-string">"001122fffe334455"</span>,<span class="hljs-string">"fPort"</span>:1,<span class="hljs-string">"data"</span>:<span class="hljs-string">"AgMF"</span>}'
+mosquitto_pub -h SUPERNODE_URL -p <span class="hljs-number">8883</span> -u <span class="hljs-string">"ADMIN_USERNAME"</span> -P <span class="hljs-string">"ADMIN_PASSWORD"</span> -t <span class="hljs-string">"application/201/device/001122fffe334455/tx"</span> -m '{<span class="hljs-string">"confirmed"</span>:<span class="hljs-literal">true</span>,<span class="hljs-string">"fPort"</span>:<span class="hljs-number">1</span>,<span class="hljs-string">"data"</span>:<span class="hljs-string">"AgMF"</span>}' <span class="hljs-comment">--capath /etc/ssl/certs</span>
 </code></pre>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/firmwareUpdate"><span class="arrow-prev">← </span><span>Firmware Updates</span></a><a class="docs-next button" href="/docs/en/userRegParamFreqPlan"><span>Regional Parameters and Frequency Plan</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#subscription">Subscription</a></li><li><a href="#uplink-payload-data-format">Uplink Payload Data Format</a></li><li><a href="#publishing">Publishing</a></li><li><a href="#downlink-payload-data-format">Downlink Payload Data Format</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="MXC Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/startingDev.html">Getting Started for Developers</a><a href="/docs/en/startingUser.html">Getting Started for Users</a></div><div><h5>Community</h5><a href="https://discord.gg/fbyCMa3" target="_blank" rel="noreferrer noopener">Developers on Discord</a><a href="https://discord.gg/fbyCMa3" target="_blank" rel="noreferrer noopener">Users on Discord</a><a href="https://t.me/mxcfoundation">Project Chat</a><a href="https://twitter.com/mxcfoundation" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="https://github.com/orgs/mxc-foundation/">GitHub</a><a class="github-button" href="https://github.com/mxc-foundation/lpwan-app-server" data-icon="octicon-star" data-count-href="/mxc-foundation/lpwan-app-server" data-show-count="true" data-count-aria-label="# MXC on GitHub" aria-label="Star this project on GitHub">Star</a><div class="social"><a href="https://twitter.com/mxcfoundation" class="twitter-follow-button">Follow @mxcfoundation</a></div></div></section><section class="copyright">Copyright © 2020 MXC Foundation gGmbH</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
