@@ -51,7 +51,7 @@ The payload is consisting of several commands in a Type-Length-Value (TLV) forma
 
 | Number | Name          | Length | Description                                                                                       |
 |--------|---------------|--------|---------------------------------------------------------------------------------------------------|
-| 0      | Param value   | >=2    | Response to the "Get params" command. The first byte is the param number, the rest are the value. |
+| 0      | Param value   | >=2    | Response to the "Get params" command. The first byte is the param number, the rest are the value. |
 | 1      | Sensor data   | >=1    | Sensor data.                                                                                      |
 | 2      | Battery level | 1      | Battery level in 10mV steps from 2V (0 = 2V, 255 = 4.55V).                                        |
 
@@ -59,31 +59,42 @@ Sensor data consists of a byte signifying the sensor type, as defined in sensor.
 
 | Number | Name    | Length | Description      |
 |--------|---------|--------|------------------|
-| 0      | Unknown | 0      | No data.         |
+| 0      | Unknown | 0      | No data.         |
 | 1      | GPS     | 11     | GPS coordinates. |
 | 2      | Temp    | 1      | Temperature.     |
 
-GPS data format is as follows:
+<b>GPS data format is as follows:</b>
+
+[When data length is 1]
+
+| Offset | Length | Description                                                                                                                                                                                                      |
+|--------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0      | 1      | Indicates whether the node has moved since last GPS fix.  Possible values are:<br>&nbsp;&nbsp;&nbsp;&nbsp;0: Node is stable since last GPS fix<br>&nbsp;&nbsp;&nbsp;&nbsp;1: Node has moved, or has not received a GPS fix since boot; waiting for GPS fix |
+
+
+[When data length is 11]
 
 | Offset | Length | Description                                                                                                                                                                                    |
 |--------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 0      | 1      | $GPGGA Position Fix Indicator.  Possible values are: <br>* 0 Fix not available or invalid<br> * 1 GPS SPS Mode, fix valid<br> * 2 Differential GPS, SPS Mode, fix valid <br>* 6 Dead Reckoning Mode, fix valid |
+| 0      | 1      | $GPGGA Position Fix Indicator.  Possible values are: <br>* 0 Fix not available or invalid<br> * 1 GPS SPS Mode, fix valid<br> * 2 Differential GPS, SPS Mode, fix valid <br>* 6 Dead Reckoning Mode, fix valid |
 | 1      | 4      | Lattitude in 1/1000 of minutes, as little-endian int32. Positive is north, negative is south. To get the value in degrees, divide by 600000.                                                   |
 | 5      | 4      | Longitude in 1/1000 of minutes, as little-endian int32. Positive is east, negative is west. To get the value in degrees, divide by 600000.                                                     |
 | 9      | 2      | Altitude above geoid mean sea level in decimetres (0.1m), as little-endian int16.                                                                                                              |
 
-Temperature data format is as follows:
+<b>Temperature data format is as follows:</b>
 
-| Offset | Length | Description                                                                                                                              |
-|--------|--------|------------------------------------------------------------------------------------------------------------------------------------------|
-| 0      | 1      | Temperature in degrees Celsius as a signed int8_t, giving the range between -128 and +127. Temperatures outside this range are not sent. |
+| Offset | Length | Description                                                                                                                                   |
+|--------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| 0      | 1      | Temperature in degrees Celsius as a signed int8_t, giving the range between -128 and +127. Temperatures outside this range are not sent.      |
+| 1      | 1      | If present, fractional temperature in 1/256th degrees Celsius as a unsigned uint8_t. Typically only the most significant 3 bits hold a value. |
+
 
 ## Publishing
 To send messages to the nodes, publish to MQTT topic:
 
 ```
 # To send a message to a node, issue the following command:
-mosquitto_pub -h SUPERNODE_URL -p 8883  -u "ADMIN_USERNAME" -P "ADMIN_PASSWORD" -i "`hostname`-$$" -t "application/201/node/NODE_DEVEUI/tx" -m '{"applicationID":"201","devEUI":"NODE_DEVEUI","fPort":1,"data":"DATA_IN_BASE64"}'
+mosquitto_pub -h SUPERNODE_URL -p 8883  -u "ADMIN_USERNAME" -P "ADMIN_PASSWORD" -t "application/201/device/NODE_DEVEUI/tx" -m '{"confirmed":true,"fPort":1,"data":"DATA_IN_BASE64"}' --capath /etc/ssl/certs
 ```
 
 ## Downlink Payload Data Format
@@ -92,7 +103,7 @@ Payload is consisting of several commands in a Type-Length-Value (TLV) format. T
 
 | Number | Name           | Length | Description                                                                                                                                                                                                                                                                  |
 |--------|----------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 0      | Get params     | 1      | Get parameter described by first byte.                                                                                                                                                                                                                                       |
+| 0      | Get params     | 1      | Get parameter described by first byte.                                                                                                                                                                                                                                       |
 | 1      | Set params     | >=2    | Set parameter described by first byte to the value specified in the rest of the message.                                                                                                                                                                                     |
 | 2      | Reboot         | 0      | Reboot the node immediately.                                                                                                                                                                                                                                                 |
 | 1      | Reboot/upgrade | 1      | Reboot the node after the specified timeout; optionally turn BLE and SUOTA on for upgrades. The argument is as follows:bit [7]:0: just reboot1: BLE onbits [6:3]: Reservedbits [2:0]: Timeout0: TBD1: 5 minutes2: 15 minutes3: 30 minutes4: 1 hour5: 2 hours6: 4 hours7: TBD |
@@ -101,7 +112,7 @@ Parameters are as follows:
 
 | Number | Name   | Length | Description                                     |
 |--------|--------|--------|-------------------------------------------------|
-| 0      | deveui | 6      | DevEUI-48 and BLE MAC address (MSBF)            |
+| 0      | deveui | 6      | DevEUI-48 and BLE MAC address (MSBF)            |
 | 1      | appeui | 8      | AppEUI-64 (MSBF)                                |
 | 2      | appkey | 16     | AppKey (write-only)                             |
 | 3      | period | 1      | Sensor period                                   |
@@ -133,5 +144,5 @@ Sensor period is as follows:
 # 05  Value = 05 (5 min)
 # This gives us 020305 in hex, which encoded as base-64 is "AgMF".
 # To send the message to the node, issue the following command:
-mosquitto_pub -h S -p 8883  -u "ADMIN_USERNAME" -P "ADMIN_PASSWORD" -i "`hostname`-$$" -t "application/201/node/001122fffe334455/tx" -m '{"applicationID":"201","devEUI":"001122fffe334455","fPort":1,"data":"AgMF"}'
+mosquitto_pub -h SUPERNODE_URL -p 8883 -u "ADMIN_USERNAME" -P "ADMIN_PASSWORD" -t "application/201/device/001122fffe334455/tx" -m '{"confirmed":true,"fPort":1,"data":"AgMF"}' --capath /etc/ssl/certs
 ```
