@@ -18,10 +18,11 @@ Setup a DNS A record in your DNS zone which is used for the Supernode URL and po
   - Eg: my.supernode.test -> 1.2.3.4
 
 Signup for an email service from your provider (or gather smtp details if exists already) and save the following information:
-  - Sender email:
-  - Password:
-  - SMTP server:
-  - Port: (25 or 587 with TLS supported)
+  - Sender email address:
+  - smtp user name:
+  - smtp user password:
+  - smtp server:
+  - smtp port: (25 or 587 with TLS supported)
 
 Configure Firewall rules (Security Group when using cloud provider)
   - TCP/22:x.x.x.x/x specific ssh access for management of supernode (just ask MXC which IP to restrict it to)
