@@ -21,7 +21,7 @@ Signup for an email service from your provider (or gather smtp details if exists
   - Sender email:
   - Password:
   - SMTP server:
-  - Port: (25 or 465 supported)
+  - Port: (25 or 587 with TLS supported)
 
 Configure Firewall rules (Security Group when using cloud provider)
   - TCP/22:x.x.x.x/x specific ssh access for management of supernode (just ask MXC which IP to restrict it to)
