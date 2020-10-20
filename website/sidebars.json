@@ -4,7 +4,7 @@
   },
   "users": {
     "Getting Started": ["startingUser", "userCreateAccount"],
-    "MXC DataDash": ["userM2mWallet", "userStaking"],
+    "MXC DataDash": ["userM2mWallet", "userStaking", "userMining"],
     "MXC Controller": [
       "userLPWAN",
       "serviceProfiles",
