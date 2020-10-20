@@ -19,16 +19,23 @@ Therefore, by staking MXC, you receive a portion of the 10% dedicated to stakers
 
 ## How to stake MXC
 
-_Please note: before staking you need to have MXC in your M2M Wallet._
+_Please note: before staking you need to have MXC in your [DataDash App](https://mxc.wiki/docs/en/userStaking)_
 
-1. Login to your supernode
-2. Click on "Staking"
-3. Enter the "Amount" of MXC you wish to stake
-4. Click on "Confirm Stake"
+1. Login to your Supernode with your DataDash App
+2. Select "Stake"
+3. Choose a "Plan" for staking
+4- Enter the "Amount" of MXC or drag the amount bar to how much you wish to stake
+5. Select "Confirm Stake"
 
 ## How to unstake MXC
 
-Staking profits are calculated at the end of the current month. If you unstake early, you lose all potential staking profits for the current month. Therefore it is recommneded that you only unstake at the beginning of any given month.
+Staking profits are calculated over a 30 days period. If you unstake early, you lose all potential staking profits for the current period. Therefore it is recommneded that you only unstake at the beginning of any given period.
+The additional boosts are only available with plans Where your MXC can be locked for a given period, there is no unstake possible. 
 
-1. Navigate to "Staking"
-2. Click on "Unstake"
+1. Login to your Supernode with your DataDash App
+2. Select "Wallet" in the menu bar
+3. Select "Stake" tab at the top right
+4. Select "Unstake" button
+5. Choose the "Stake asset" to unstake
+6. Enter 2FA token from Google Authenticator
+7. Select "Done" 
