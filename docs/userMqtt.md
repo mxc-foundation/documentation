@@ -90,11 +90,28 @@ Sensor data consists of a byte signifying the sensor type, as defined in sensor.
 
 
 ## Publishing
-To send messages to the nodes, publish to MQTT topic:
+To send messages to the nodes, publish to MQTT topic.
+The default topic for scheduling downlink payloads is:
+```
+application/[ApplicationID]/device/[DevEUI]/command/down
+```
+The message format should be as follow:
+```
+{
+    "confirmed": true,                        // whether the payload must be sent as confirmed data down or not
+    "fPort": 10,                              // FPort to use (must be > 0)
+    "data": "...."                            // base64 encoded data (plaintext, will be encrypted by ChirpStack Network Server)
+    "object": {                               // decoded object (when application codec has been configured)
+        "temperatureSensor": {"1": 25},       // when providing the 'object', you can omit 'data'
+        "humiditySensor": {"1": 32}
+    }
+}
+```
+The exapple of publishing with mosquitto_pub looks as this:
 
 ```
 # To send a message to a node, issue the following command:
-mosquitto_pub -h SUPERNODE_URL -p 8883  -u "ADMIN_USERNAME" -P "ADMIN_PASSWORD" -t "application/201/device/NODE_DEVEUI/tx" -m '{"confirmed":true,"fPort":1,"data":"DATA_IN_BASE64"}' --capath /etc/ssl/certs
+mosquitto_pub -h SUPERNODE_URL -p 8883 --capath /etc/ssl/certs -u "USERNAME" -P "PASSWORD" -i -t "applications/APP_ID/device/DEV_UI/command/down" -m '{"confirmed": false, "fPort":1,"data":"BASE64"}'
 ```
 
 ## Downlink Payload Data Format
@@ -144,5 +161,6 @@ Sensor period is as follows:
 # 05  Value = 05 (5 min)
 # This gives us 020305 in hex, which encoded as base-64 is "AgMF".
 # To send the message to the node, issue the following command:
-mosquitto_pub -h SUPERNODE_URL -p 8883 -u "ADMIN_USERNAME" -P "ADMIN_PASSWORD" -t "application/201/device/001122fffe334455/tx" -m '{"confirmed":true,"fPort":1,"data":"AgMF"}' --capath /etc/ssl/certs
+
+mosquitto_pub -h SUPERNODE_URL -p 8883 -u "USERNAME" -P "PASSWORD" -t "applications/APP_ID/device/DEV_UI/command/down" -m '{"confirmed":true,"fPort":1,"data":"AgMF"}' --capath /etc/ssl/certs
 ```
