@@ -1,0 +1,229 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Payload Format · MXC Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Uplink Payload Data Format"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Payload Format · MXC Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="mxc.wiki/"/><meta property="og:description" content="## Uplink Payload Data Format"/><meta property="og:image" content="mxc.wiki/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="mxc.wiki/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/favicon.ico" alt="MXC Documentation"/><h2 class="headerTitleWithLogo">MXC Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/en/startingUser" target="_self">Users</a></li><li class=""><a href="/docs/en/startingDev" target="_self">Developers</a></li><li class=""><a href="/docs/en/v.1.0.X" target="_self">Release Notes</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/zh-CN/payloadFormat">中文</a></li><li><a href="/docs/zh-TW/payloadFormat">繁體中文</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Integrations</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/startingUser">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/docs/en/userCreateAccount">Create an Account</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">MXC DataDash</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/userM2mWallet">MXC DataDash</a></li><li class="navListItem"><a class="navItem" href="/docs/en/userStaking">Staking</a></li><li class="navListItem"><a class="navItem" href="/docs/en/userMining">Mining</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">MXC Controller</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/userLPWAN">Managing Gateways &amp; Devices</a></li><li class="navListItem"><a class="navItem" href="/docs/en/serviceProfiles">Service Profiles</a></li><li class="navListItem"><a class="navItem" href="/docs/en/deviceProfiles">Device Profiles</a></li><li class="navListItem"><a class="navItem" href="/docs/en/applications">Applications</a></li><li class="navListItem"><a class="navItem" href="/docs/en/multicastGroups">Multicast Groups</a></li><li class="navListItem"><a class="navItem" href="/docs/en/devices">Devices</a></li><li class="navListItem"><a class="navItem" href="/docs/en/gateway">Gateways</a></li><li class="navListItem"><a class="navItem" href="/docs/en/frameLogging">Frame logging</a></li><li class="navListItem"><a class="navItem" href="/docs/en/eventLogging">Event Logging</a></li><li class="navListItem"><a class="navItem" href="/docs/en/firmwareUpdate">Firmware Updates</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Integrations</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/mqtt">MQTT</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/en/payloadFormat">Payload Format</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Additional Information</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/userRegParamFreqPlan">Regional Parameters and Frequency Plan</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Payload Format</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="uplink-payload-data-format"></a><a href="#uplink-payload-data-format" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Uplink Payload Data Format</h2>
+<p>The payload is consisting of several commands in a Type-Length-Value (TLV) format. The first byte is consisting of Type (bits [7:4]), defining the command, and Length (bits [3:0]), the length of the arguments in bytes. If the Length bits are 0xF (binary 1111), the command has its length specified in bits [5:0] of the second byte.</p>
+<table>
+<thead>
+<tr><th>Number</th><th>Name</th><th>Length</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>Param value</td><td>&gt;=2</td><td>Response to the &quot;Get params&quot; command. The first byte is the param number, the rest are the value.</td></tr>
+<tr><td>1</td><td>Sensor data</td><td>&gt;=1</td><td>Sensor data.</td></tr>
+<tr><td>2</td><td>Battery level</td><td>1</td><td>Battery level in 10mV steps from 2V (0 = 2V, 255 = 4.55V).</td></tr>
+<tr><td>3</td><td>Battery Percent</td><td>1</td><td>Battery level in percent (0 to 100).</td></tr>
+<tr><td>4</td><td>Event data</td><td>&gt;=1</td><td>Event data</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="sensor-data"></a><a href="#sensor-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sensor Data</h3>
+<p>Sensor data consists of a byte signifying the sensor type, and zero or more bytes of sensor data. The defined types and corresponding data formats are:</p>
+<table>
+<thead>
+<tr><th>Number</th><th>Name</th><th>Length</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>unknown</td><td>0</td><td>No data.</td></tr>
+<tr><td>1</td><td>gps</td><td>1 or 11</td><td>GPS coordinates.</td></tr>
+<tr><td>2</td><td>temp</td><td>1 or 2 or 4</td><td>Temperature in degrees Celsius.</td></tr>
+<tr><td>3</td><td>humi</td><td>1 or 2 or 4</td><td>Relative humidity in %RH.</td></tr>
+<tr><td>4</td><td>pressure</td><td>4</td><td>Barometric pressure in hPa.</td></tr>
+<tr><td>5</td><td>pm10</td><td>4</td><td>PM10 Concentration in μg/m3.</td></tr>
+<tr><td>6</td><td>pm2.5</td><td>4</td><td>PM2.5 Concentration in μg/m3.</td></tr>
+<tr><td>7</td><td>tvoc</td><td>4</td><td>VOC Concentration in ppb.</td></tr>
+<tr><td>8</td><td>no2</td><td>4</td><td>Nitrogen Dioxide Concentration in ppm.</td></tr>
+<tr><td>9</td><td>co2</td><td>4</td><td>Carbon Dioxide Concentration in ppm.</td></tr>
+<tr><td>10</td><td>airFlow</td><td>4</td><td>Air Flow Rate (Wind Speed) in m/s.</td></tr>
+<tr><td>11</td><td>voltage</td><td>1 or 2 or 4</td><td>Voltage in V.</td></tr>
+<tr><td>12</td><td>current</td><td>1 or 2 or 4</td><td>Electric Current in A.</td></tr>
+<tr><td>13</td><td>power</td><td>1 or 2 or 4</td><td>Electric Power in W.</td></tr>
+<tr><td>14</td><td>powerUsage</td><td>4</td><td>Electric Power usage in kWh.</td></tr>
+<tr><td>15</td><td>waterUsage</td><td>4</td><td>Water usage in Kilolitres.</td></tr>
+<tr><td>16</td><td>speed</td><td>4</td><td>Movement Speed in m/s.</td></tr>
+<tr><td>17</td><td>rotation</td><td>4</td><td>Rotational speed in RPM.</td></tr>
+<tr><td>18</td><td>counter</td><td>4</td><td>A generic counter in a 32-bits unsigned value.</td></tr>
+<tr><td>19</td><td>digital</td><td>1</td><td>A generic digital value.<br>0: Low or OFF, 1: High or ON, -1 Unknown or Invalid.</td></tr>
+<tr><td>254</td><td>uplinkPower</td><td>1</td><td>Exact value of TX Power in dBm.</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="gps-data-format"></a><a href="#gps-data-format" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GPS data format</h4>
+<p>When data length is 1</p>
+<table>
+<thead>
+<tr><th>Offset</th><th>Length</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>1</td><td>Indicates whether the node has moved since last GPS fix.  Possible values are:<br>    0: Node is stable since last GPS fix<br>    1: Node has moved, or has not received a GPS fix since boot; waiting for GPS fix</td></tr>
+</tbody>
+</table>
+<p>When data length is 11</p>
+<table>
+<thead>
+<tr><th>Offset</th><th>Length</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>1</td><td>$GPGGA Position Fix Indicator.  Possible values are: <br>* 0 Fix not available or invalid<br> * 1 GPS SPS Mode, fix valid<br> * 2 Differential GPS, SPS Mode, fix valid <br>* 6 Dead Reckoning Mode, fix valid</td></tr>
+<tr><td>1</td><td>4</td><td>Latitude in 1/1000 of minutes, as little-endian int32. Positive is north, negative is south. To get the value in degrees, divide by 600000.</td></tr>
+<tr><td>5</td><td>4</td><td>Longitude in 1/1000 of minutes, as little-endian int32. Positive is east, negative is west. To get the value in degrees, divide by 600000.</td></tr>
+<tr><td>9</td><td>2</td><td>Altitude above geoid mean sea level in decimeters (0.1m), as little-endian int16.</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="data-format-for-1-byte-value"></a><a href="#data-format-for-1-byte-value" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Data format for 1 byte value</h4>
+<p>It is a signed 8-bits integer (int8_t), giving the range between -128 and +127.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">// Decoding</span>
+<span class="hljs-keyword">if</span> (offset_0 &gt; <span class="hljs-number">0x7f</span>) {
+  value = ((offset_0 ^ <span class="hljs-number">0xff</span>) + <span class="hljs-number">1</span>) * <span class="hljs-number">-1</span>;
+}
+<span class="hljs-keyword">else</span> {
+  value = offset_0;
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="data-format-for-2-bytes-value"></a><a href="#data-format-for-2-bytes-value" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Data format for 2 bytes value</h4>
+<p>It is a signed 16-bits fixed point number. Offset 0 is the sign bit and integer part. Offset 1 is the fractional part.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">// Decoding in Javascript</span>
+<span class="hljs-keyword">let</span> raw_value = (offset_0 &lt;&lt; <span class="hljs-number">8</span>) | offset_1;
+<span class="hljs-keyword">if</span> (raw_value &gt; <span class="hljs-number">0x7fff</span>) {
+  value = ((raw_value ^ <span class="hljs-number">0xffff</span>) + <span class="hljs-number">1</span>) * <span class="hljs-number">-1</span>;
+}
+<span class="hljs-keyword">else</span> {
+  value = raw_value;
+}
+value = value / <span class="hljs-number">256</span>;
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="data-format-for-4-bytes-value"></a><a href="#data-format-for-4-bytes-value" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Data format for 4 bytes value</h4>
+<p>It is a 32-bits floating point number (IEEE 754). Offset 0 is the MSB.</p>
+<p>For example, a value of 54.12 will has a 32-bits value of 0x42587ae1.</p>
+<p>The payload will become &lt;0x42&gt;&lt;0x58&gt;&lt;0x7a&gt;&lt;0xe1&gt;.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">// Decoding in Javascript</span>
+<span class="hljs-keyword">let</span> raw_value = (offset_0 &lt;&lt; <span class="hljs-number">24</span>) | (offset_1 &lt;&lt; <span class="hljs-number">16</span>) | (offset_2 &lt;&lt; <span class="hljs-number">8</span>) | offset_3;
+<span class="hljs-keyword">let</span> v_temp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">DataView</span>(<span class="hljs-keyword">new</span> <span class="hljs-built_in">ArrayBuffer</span>(<span class="hljs-number">4</span>))
+v_temp.setUint32(<span class="hljs-number">0</span>, raw_value)
+value = v_temp.getFloat32(<span class="hljs-number">0</span>)
+</code></pre>
+<p>The NAN (Not A Number) (0x7fc00000), means the sensor value is unknown or invalid.</p>
+<h3><a class="anchor" aria-hidden="true" id="event-data"></a><a href="#event-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Event Data</h3>
+<p>Event data is information about change that occurs at a point in time. A event will contain the type value and additional event data.</p>
+<table>
+<thead>
+<tr><th>Number</th><th>Name</th><th>Length</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>unknown</td><td>0</td><td>No data.</td></tr>
+<tr><td>11</td><td>opened</td><td>1</td><td>The unit is opened by a user. Data is the user ID.</td></tr>
+<tr><td>12</td><td>specialOpened</td><td>0</td><td>The unit is opened in a special way. For example, a key or button.</td></tr>
+<tr><td>13</td><td>forceOpened</td><td>0</td><td>The unit is opened in a abnormal way.</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="downlink-payload-data-format"></a><a href="#downlink-payload-data-format" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Downlink Payload Data Format</h2>
+<p>Payload is consisting of several commands in a Type-Length-Value (TLV) format. The first byte is consisting of Type (bits [7:4]), defining the command, and Length (bits [3:0]), the length of the arguments in bytes. If the Length bits are 0xF (binary 1111), the command has its length specified in bits [5:0] of the second byte.</p>
+<table>
+<thead>
+<tr><th>Number</th><th>Name</th><th>Length</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>Get params</td><td>1</td><td>Get parameter described by first byte.</td></tr>
+<tr><td>1</td><td>Set params</td><td>&gt;=2</td><td>Set parameter described by first byte to the value specified in the rest of the message.</td></tr>
+<tr><td>2</td><td>Reboot</td><td>0</td><td>Reboot the node immediately.</td></tr>
+<tr><td>1</td><td>Reboot/upgrade</td><td>1</td><td>Reboot the node after the specified timeout; optionally turn BLE and SUOTA on for upgrades. The argument is as follows:bit [7]:0: just reboot1: BLE onbits [6:3]: Reservedbits [2:0]: Timeout0: TBD1: 5 minutes2: 15 minutes3: 30 minutes4: 1 hour5: 2 hours6: 4 hours7: TBD</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="parameters"></a><a href="#parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h2>
+<table>
+<thead>
+<tr><th>Number</th><th>Name</th><th>Length</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>deveui</td><td>6</td><td>DevEUI-48 and BLE MAC address (MSBF)<br><i>Only for DevKit. Please don't use it at final product.</i></td></tr>
+<tr><td>1</td><td>appeui</td><td>8</td><td>AppEUI-64 (MSBF)<br/><i>Only for DevKit. Please don't use it at final product.</i></td></tr>
+<tr><td>2</td><td>appkey</td><td>16</td><td>AppKey (write-only)<br/><i>Only for DevKit. Please don't use it at final product.</i></td></tr>
+<tr><td>3</td><td>period</td><td>1</td><td>Sensor period</td></tr>
+<tr><td>4</td><td>sf</td><td>1</td><td>Minimal LoRa Spread Factor (valid values: 7-12)</td></tr>
+<tr><td>5</td><td>version</td><td>2</td><td>Version number.<br>01 00 =&gt; V1.0</td></tr>
+</tbody>
+</table>
+<p>Parameters 0, 1, 2 and 4 are actualized after reboot.</p>
+<p>Sensor period is as follows:</p>
+<table>
+<thead>
+<tr><th>Number</th><th>Period</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>Default</td></tr>
+<tr><td>1</td><td>10 sec</td></tr>
+<tr><td>2</td><td>30 sec</td></tr>
+<tr><td>3</td><td>1 min</td></tr>
+<tr><td>4</td><td>2 min</td></tr>
+<tr><td>5</td><td>5 min</td></tr>
+<tr><td>6</td><td>10 min</td></tr>
+<tr><td>7</td><td>30 min</td></tr>
+<tr><td>8</td><td>1 hour</td></tr>
+<tr><td>9</td><td>2 hours</td></tr>
+<tr><td>10</td><td>5 hours</td></tr>
+<tr><td>11</td><td>12 hours</td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/mqtt"><span class="arrow-prev">← </span><span>MQTT</span></a><a class="docs-next button" href="/docs/en/userRegParamFreqPlan"><span>Regional Parameters and Frequency Plan</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#uplink-payload-data-format">Uplink Payload Data Format</a><ul class="toc-headings"><li><a href="#sensor-data">Sensor Data</a></li><li><a href="#event-data">Event Data</a></li></ul></li><li><a href="#downlink-payload-data-format">Downlink Payload Data Format</a></li><li><a href="#parameters">Parameters</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="MXC Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/startingDev.html">Getting Started for Developers</a><a href="/docs/en/startingUser.html">Getting Started for Users</a></div><div><h5>Community</h5><a href="https://discord.gg/fbyCMa3" target="_blank" rel="noreferrer noopener">Developers on Discord</a><a href="https://discord.gg/fbyCMa3" target="_blank" rel="noreferrer noopener">Users on Discord</a><a href="https://t.me/mxcfoundation">Project Chat</a><a href="https://twitter.com/mxcfoundation" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="https://github.com/orgs/mxc-foundation/">GitHub</a><a class="github-button" href="https://github.com/mxc-foundation/lpwan-app-server" data-icon="octicon-star" data-count-href="/mxc-foundation/lpwan-app-server" data-show-count="true" data-count-aria-label="# MXC on GitHub" aria-label="Star this project on GitHub">Star</a><div class="social"><a href="https://twitter.com/mxcfoundation" class="twitter-follow-button">Follow @mxcfoundation</a></div></div></section><section class="copyright">Copyright © 2020 MXC Foundation gGmbH</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
