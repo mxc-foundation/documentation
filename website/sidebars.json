@@ -18,7 +18,8 @@
       "firmwareUpdate"
     ],
     "Integrations": [
-      "mqtt"
+      "mqtt",
+      "payloadFormat"
     ],
     "Additional Information": [
       "userRegParamFreqPlan"
