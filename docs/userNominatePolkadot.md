@@ -87,14 +87,14 @@ earn compound interest.
 ### Step 2: Nominate a validator
 
 You are now bonded. Being bonded means your tokens are locked and could be
-[slashed](learn-staking#slashing) if the validators you nominate misbehave. All bonded funds can now
+[slashed](https://wiki.polkadot.network/docs/en/learn-staking#slashing) if the validators you nominate misbehave. All bonded funds can now
 be distributed to up to 16 validators. Be careful about the validators you choose since you will be
 slashed if your validator commits an offence.
 
 Click on "Nominate" on an account you've bonded and you will be presented with another popup asking
 you to select up to 16 validators. Although you may choose up to 16 validators, due to the
-[Phragmén](learn-phragmen) election algorithm your stake may be dispersed in different proportions
-to any subset or all of the validators your choose.
+[Phragmén](https://wiki.polkadot.network/docs/en/learn-phragmen) election algorithm your stake 
+may be dispersed in different proportions to any subset or all of the validators your choose.
 
 ![Nominating validators](assets/polkadotjs_setup_nominator2.png)
 
@@ -106,12 +106,12 @@ in the current era on the [Staking page](https://polkadot.js.org/apps/#/staking)
 
 Assuming at least one of your nominations ends up in the active validator set, you will start to get
 rewards allocated to you. In order to claim them (i.e., add them to your account), you must manually
-claim them. See the [Claiming Rewards](learn-staking#claiming-rewards) section of the Staking wiki
+claim them. See the [Claiming Rewards](https://wiki.polkadot.network/docs/en/learn-staking#claiming-rewards) section of the Staking wiki
 page for more details.
 
 ### Step 3: Stop nominating
 
 At some point, you might decide to stop nominating one or more validators. You can always change who
 you're nominating, but you cannot withdraw your tokens unless you unbond them. Detailed instructions
-are available [here](maintain-guides-how-to-unbond).
+are available [here](https://wiki.polkadot.network/docs/en/maintain-guides-how-to-unbond).
 
