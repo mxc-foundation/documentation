@@ -67,6 +67,9 @@ rewards, and slashes.
 
 Pick "Account actions", then click the "+ Nominator" button.
 
+You will see a modal window that looks like the below:
+![nominator-update-1](assets/polkadotjs_nominate_button.png)
+
 Select a "value bonded" that is **less** than the total amount of DOT you have, so you have some
 left over to pay transaction fees. Transaction fees are currently around 0.01 DOT, but they are
 dynamic based on a variety of factors including the load of recent blocks.
