@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>How to Nominate on Polkadot · MXC Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Nominators are one type of participant in the staking subsystem of Polkadot. They are responsible"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="How to Nominate on Polkadot · MXC Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="mxc.wiki/"/><meta property="og:description" content="Nominators are one type of participant in the staking subsystem of Polkadot. They are responsible"/><meta property="og:image" content="mxc.wiki/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="mxc.wiki/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/favicon.ico" alt="MXC Documentation"/><h2 class="headerTitleWithLogo">MXC Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/en/startingUser" target="_self">Users</a></li><li class=""><a href="/docs/en/startingDev" target="_self">Developers</a></li><li class=""><a href="/docs/en/v.1.0.X" target="_self">Release Notes</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/zh-CN/userNominatePolkadot">中文</a></li><li><a href="/docs/zh-TW/userNominatePolkadot">繁體中文</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Additional Information</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/startingUser">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/docs/en/userCreateAccount">Create an Account</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">MXC DataDash</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/userM2mWallet">MXC DataDash</a></li><li class="navListItem"><a class="navItem" href="/docs/en/userStaking">Staking</a></li><li class="navListItem"><a class="navItem" href="/docs/en/userMining">Mining</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">MXC Controller</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/userLPWAN">Managing Gateways &amp; Devices</a></li><li class="navListItem"><a class="navItem" href="/docs/en/serviceProfiles">Service Profiles</a></li><li class="navListItem"><a class="navItem" href="/docs/en/deviceProfiles">Device Profiles</a></li><li class="navListItem"><a class="navItem" href="/docs/en/applications">Applications</a></li><li class="navListItem"><a class="navItem" href="/docs/en/multicastGroups">Multicast Groups</a></li><li class="navListItem"><a class="navItem" href="/docs/en/devices">Devices</a></li><li class="navListItem"><a class="navItem" href="/docs/en/gateway">Gateways</a></li><li class="navListItem"><a class="navItem" href="/docs/en/frameLogging">Frame logging</a></li><li class="navListItem"><a class="navItem" href="/docs/en/eventLogging">Event Logging</a></li><li class="navListItem"><a class="navItem" href="/docs/en/firmwareUpdate">Firmware Updates</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Integrations</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/mqtt">MQTT</a></li><li class="navListItem"><a class="navItem" href="/docs/en/payloadFormat">Payload Format</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Additional Information</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/docs/en/userNominatePolkadot">How to Nominate on Polkadot</a></li><li class="navListItem"><a class="navItem" href="/docs/en/userRegParamFreqPlan">Regional Parameters and Frequency Plan</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">How to Nominate on Polkadot</h1></header><article><div><span><p>Nominators are one type of participant in the staking subsystem of Polkadot. They are responsible
+for appointing their stake to the validators who are the second type of participant. By appointing
+their stake, they are able to elect the active set of validators and share in the rewards that are
+paid out.</p>
+<p>While the validators are active participants in the network that take part in the block
+production and finality mechanisms, nominators take a more passive role with a
+&quot;set-it-and-forget-it&quot; approach. Being a nominator does not require running a node of your own or
+worrying about online uptime. However, a good nominator performs due diligence on the validators
+that they elect. When looking for validators to nominate, a nominator should pay attention to their
+own reward percentage for nominating a specific validator - as well as the risk that they bare of
+being slashed if the validator gets slashed.</p>
+<h2><a class="anchor" aria-hidden="true" id="setting-up-stash-and-controller-keys"></a><a href="#setting-up-stash-and-controller-keys" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting up Stash and Controller keys</h2>
+<p>Nominators are recommended to set up separate stash and controller accounts. Explanation and
+reasoning for generating distinct accounts for this purpose is elaborated in the
+<a href="https://wiki.polkadot.network/docs/en/learn-keys#controller-and-stash-keys">keys</a> section of
+the Polkadot Wiki.</p>
+<p>You can generate your stash and controller account via any of the recommended methods that are
+detailed on the <a href="https://wiki.polkadot.network/docs/en/learn-account-generation">account generation</a> page.</p>
+<p>Starting with runtime version v23 natively included in client version
+<a href="https://github.com/paritytech/polkadot/releases/tag/v0.8.23">0.8.23</a>, payouts can go to any custom
+address. If you'd like to redirect payments to an account that is neither the controller nor the
+stash account, set one up. Note that it is extremely unsafe to set an exchange address as the
+recipient of the staking rewards.</p>
+<h2><a class="anchor" aria-hidden="true" id="using-polkadot-js-ui"></a><a href="#using-polkadot-js-ui" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using Polkadot-JS UI</h2>
+<h3><a class="anchor" aria-hidden="true" id="step-1-bond-your-tokens"></a><a href="#step-1-bond-your-tokens" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 1: Bond your tokens</h3>
+<p>On the <a href="https://polkadot.js.org/apps">Polkadot-JS UI</a> navigate to the &quot;Network/Staking&quot; tab.</p>
+<p>The &quot;Staking Overview&quot; subsection will show you all the active validators and their information -
+their identities, the amount of DOT that are staking for them, amount that is their own provided
+stake, how much they charge in commission, the era points they've earned in the current era, and the
+last block number that they produced. If you click on the chart button it will take you to the
+&quot;Validator Stats&quot; page for that validator that shows you more detailed and historical information
+about the validator's stake, rewards and slashes.</p>
+<p>The &quot;Account actions&quot; subsection (<a href="https://polkadot.js.org/apps/#/staking/actions">link</a>) allows you
+to stake and nominate.</p>
+<p>The &quot;Payouts&quot; subsection (<a href="https://polkadot.js.org/apps/#/staking/payouts">link</a>) allows you to
+claim rewards from staking.</p>
+<p>The &quot;Targets&quot; subsection (<a href="https://polkadot.js.org/apps/#/staking/targets">link</a>) will help you
+estimate your earnings and this is where it's good to start picking favorites.</p>
+<p>The &quot;Waiting&quot; subsection (<a href="https://polkadot.js.org/apps/#/staking/waiting">link</a>) lists all pending
+validators that are awaiting more nominations to enter the active validator set. Validators will
+stay in the waiting queue until they have enough DOT backing them (as allocated through the
+<a href="https://wiki.polkadot.network/docs/en/learn-phragmen">Phragmén election mechanism</a>). It is possible
+validator can remain in the queue for a very long time if they never get enough backing.</p>
+<p>The &quot;Validator Stats&quot; subsection (<a href="https://polkadot.js.org/apps/#/staking/query">link</a>) allows you
+to query a validator's stash address and see historical charts on era points, elected stake,
+rewards, and slashes.</p>
+<p>Pick &quot;Account actions&quot;, then click the &quot;+ Nominator&quot; button.</p>
+<p>Select a &quot;value bonded&quot; that is <strong>less</strong> than the total amount of DOT you have, so you have some
+left over to pay transaction fees. Transaction fees are currently around 0.01 DOT, but they are
+dynamic based on a variety of factors including the load of recent blocks.</p>
+<p>Also be mindful of the reaping threshold - the amount that must remain in an account lest it be
+burned. That amount is 1 DOT on Polkadot, so it's recommended to keep at least 1.5 DOT in your
+account to be on the safe side.</p>
+<p>Choose whatever payment destination that makes sense to you. If you're unsure, you can choose &quot;Stash
+account (increase amount at stake)&quot; to simply accrue the rewards into the amount you're staking and
+earn compound interest.</p>
+<p><img src="/docs/assets/polkadotjs_payouts.png" alt="Payout account selection dropdown with the custom account option highlighted"></p>
+<blockquote>
+<p>These concepts have been further explained in Polkadot's
+<a href="https://www.youtube.com/watch?v=mNStMPZjiHM&amp;list=PLOyWqupZ-WGuAuS00rK-pebTMAOxW41W8">UI Walkthrough Video</a></p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="step-2-nominate-a-validator"></a><a href="#step-2-nominate-a-validator" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 2: Nominate a validator</h3>
+<p>You are now bonded. Being bonded means your tokens are locked and could be
+<a href="https://wiki.polkadot.network/docs/en/learn-staking#slashing">slashed</a> if the validators you nominate misbehave. All bonded funds can now
+be distributed to up to 16 validators. Be careful about the validators you choose since you will be
+slashed if your validator commits an offence.</p>
+<p>Click on &quot;Nominate&quot; on an account you've bonded and you will be presented with another popup asking
+you to select up to 16 validators. Although you may choose up to 16 validators, due to the
+<a href="https://wiki.polkadot.network/docs/en/learn-phragmen">Phragmén</a> election algorithm your stake
+may be dispersed in different proportions to any subset or all of the validators your choose.</p>
+<p><img src="/docs/assets/polkadotjs_setup_nominator2.png" alt="Nominating validators"></p>
+<p>Search and select the &quot;MXC Foundation&quot; validator, confirm the transaction, and you're done - you are now nominating. Your nominations
+will become active in the next era. Eras last twenty-four hours on Polkadot - depending on when you
+do this, your nominations may become active almost immediately, or you may have to wait almost the
+entire twenty-four hours before your nominations are active. You can chek how far along Polkadot is
+in the current era on the <a href="https://polkadot.js.org/apps/#/staking">Staking page</a>.</p>
+<p>Assuming at least one of your nominations ends up in the active validator set, you will start to get
+rewards allocated to you. In order to claim them (i.e., add them to your account), you must manually
+claim them. See the <a href="https://wiki.polkadot.network/docs/en/learn-staking#claiming-rewards">Claiming Rewards</a> section of the Staking wiki
+page for more details.</p>
+<h3><a class="anchor" aria-hidden="true" id="step-3-stop-nominating"></a><a href="#step-3-stop-nominating" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 3: Stop nominating</h3>
+<p>At some point, you might decide to stop nominating one or more validators. You can always change who
+you're nominating, but you cannot withdraw your tokens unless you unbond them. Detailed instructions
+are available <a href="https://wiki.polkadot.network/docs/en/maintain-guides-how-to-unbond">here</a>.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/payloadFormat"><span class="arrow-prev">← </span><span>Payload Format</span></a><a class="docs-next button" href="/docs/en/userRegParamFreqPlan"><span>Regional Parameters and Frequency Plan</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#setting-up-stash-and-controller-keys">Setting up Stash and Controller keys</a></li><li><a href="#using-polkadot-js-ui">Using Polkadot-JS UI</a><ul class="toc-headings"><li><a href="#step-1-bond-your-tokens">Step 1: Bond your tokens</a></li><li><a href="#step-2-nominate-a-validator">Step 2: Nominate a validator</a></li><li><a href="#step-3-stop-nominating">Step 3: Stop nominating</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="MXC Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/startingDev.html">Getting Started for Developers</a><a href="/docs/en/startingUser.html">Getting Started for Users</a></div><div><h5>Community</h5><a href="https://discord.gg/fbyCMa3" target="_blank" rel="noreferrer noopener">Developers on Discord</a><a href="https://discord.gg/fbyCMa3" target="_blank" rel="noreferrer noopener">Users on Discord</a><a href="https://t.me/mxcfoundation">Project Chat</a><a href="https://twitter.com/mxcfoundation" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="https://github.com/orgs/mxc-foundation/">GitHub</a><a class="github-button" href="https://github.com/mxc-foundation/lpwan-app-server" data-icon="octicon-star" data-count-href="/mxc-foundation/lpwan-app-server" data-show-count="true" data-count-aria-label="# MXC on GitHub" aria-label="Star this project on GitHub">Star</a><div class="social"><a href="https://twitter.com/mxcfoundation" class="twitter-follow-button">Follow @mxcfoundation</a></div></div></section><section class="copyright">Copyright © 2020 MXC Foundation gGmbH</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
