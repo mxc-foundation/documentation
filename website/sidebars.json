@@ -1,10 +1,21 @@
 {
   "developers": {
-    "Getting Started": ["startingDev", "quickstartDev", "development"]
+    "Getting Started": [
+      "startingDev", 
+      "quickstartDev", 
+      "development"
+    ]
   },
   "users": {
-    "Getting Started": ["startingUser", "userCreateAccount"],
-    "MXC DataDash": ["userM2mWallet", "userStaking", "userMining"],
+    "Getting Started": [
+      "startingUser", 
+      "userCreateAccount"
+    ],
+    "MXC DataDash": [
+      "userM2mWallet", 
+      "userStaking", 
+      "userMining"
+    ],
     "MXC Controller": [
       "userLPWAN",
       "serviceProfiles",
@@ -22,6 +33,7 @@
       "payloadFormat"
     ],
     "Additional Information": [
+      "userNominatePolkadot",
       "userRegParamFreqPlan"
     ]
   },

@@ -79,7 +79,7 @@ Choose whatever payment destination that makes sense to you. If you're unsure, y
 account (increase amount at stake)" to simply accrue the rewards into the amount you're staking and
 earn compound interest.
 
-![Payout account selection dropdown with the custom account option highlighted](assets/payout/01.png)
+![Payout account selection dropdown with the custom account option highlighted](assets/polkadotjs_payouts.png)
 
 > These concepts have been further explained in Polkadot's
 > [UI Walkthrough Video](https://www.youtube.com/watch?v=mNStMPZjiHM&list=PLOyWqupZ-WGuAuS00rK-pebTMAOxW41W8)
