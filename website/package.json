@@ -11,7 +11,11 @@
     "crowdin-download": "crowdin --config ../crowdin.yaml download -b master"
   },
   "devDependencies": {
-    "docusaurus": "^1.14.4"
+    "docusaurus": "^1.14.4",
+    "immer": ">=8.0.1",
+    "is-svg": ">=4.2.2",
+    "react-dev-utils": ">=11.0.4",
+    "highlight.js": ">=10.4.1"
   },
   "crowdin-upload": "crowdin --config ../crowdin.yaml upload sources --auto-update -b master",
   "crowdin-download": "crowdin --config ../crowdin.yaml download -b master"
