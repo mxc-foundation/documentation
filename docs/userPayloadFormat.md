@@ -22,29 +22,29 @@ The payload is consisting of several commands in a Type-Length-Value (TLV) forma
 
 Sensor data consists of a byte signifying the sensor type, and zero or more bytes of sensor data. The defined types and corresponding data formats are:
 
-| Number | Name        | Length      | Description                                                  |
-| ------ | ----------- | ----------- | ------------------------------------------------------------ |
-| 0      | unknown     | 0           | No data.                                                     |
-| 1      | gps         | 1 or 11     | GPS coordinates.                                             |
-| 2      | temp        | 1 or 2 or 4 | Temperature in degrees Celsius.                              |
-| 3      | humi        | 1 or 2 or 4 | Relative humidity in %RH.                                    |
-| 4      | pressure    | 4           | Barometric pressure in hPa.                                  |
-| 5      | pm10        | 4           | PM10 Concentration in μg/m3.                                 |
-| 6      | pm2.5       | 4           | PM2.5 Concentration in μg/m3.                                |
-| 7      | tvoc        | 4           | VOC Concentration in ppb.                                    |
-| 8      | no2         | 4           | Nitrogen Dioxide Concentration in ppm.                       |
-| 9      | co2         | 4           | Carbon Dioxide Concentration in ppm.                         |
-| 10     | airFlow     | 4           | Air Flow Rate (Wind Speed) in m/s.                           |
-| 11     | voltage     | 1 or 2 or 4 | Voltage in V.                                                |
-| 12     | current     | 1 or 2 or 4 | Electric Current in A.                                       |
-| 13     | power       | 1 or 2 or 4 | Electric Power in W.                                         |
-| 14     | powerUsage  | 4           | Electric Power usage in kWh.                                 |
-| 15     | waterUsage  | 4           | Water usage in Kilolitres.                                   |
-| 16     | speed       | 4           | Movement Speed in m/s.                                       |
-| 17     | rotation    | 4           | Rotational speed in RPM.                                     |
-| 18     | counter     | 4           | A generic counter in a 32-bits unsigned value.               |
-| 19     | digital     | 1           | A generic digital value.<br>0: Low or OFF, 1: High or ON, -1 Unknown or Invalid. |
-| 254    | uplinkPower | 1           | Exact value of TX Power in dBm.                              |
+| Number     | Name        | Length      | Description                                                  |
+| ---------- | ----------- | ----------- | ------------------------------------------------------------ |
+| 0 (0x00)   | unknown     | 0           | No data.                                                     |
+| 1 (0x01)   | gps         | 1 or 11     | GPS coordinates.                                             |
+| 2 (0x02)   | temp        | 1 or 2 or 4 | Temperature in degrees Celsius.                              |
+| 3 (0x03)   | humi        | 1 or 2 or 4 | Relative humidity in %RH.                                    |
+| 4 (0x04)   | pressure    | 4           | Barometric pressure in hPa.                                  |
+| 5 (0x05)   | pm10        | 4           | PM10 Concentration in μg/m3.                                 |
+| 6 (0x06)   | pm2.5       | 4           | PM2.5 Concentration in μg/m3.                                |
+| 7 (0x07)   | tvoc        | 4           | VOC Concentration in ppb.                                    |
+| 8 (0x08)   | no2         | 4           | Nitrogen Dioxide Concentration in ppm.                       |
+| 9 (0x09)   | co2         | 4           | Carbon Dioxide Concentration in ppm.                         |
+| 10 (0x0a)  | airFlow     | 4           | Air Flow Rate (Wind Speed) in m/s.                           |
+| 11 (0x0b)  | voltage     | 1 or 2 or 4 | Voltage in V.                                                |
+| 12 (0x0c)  | current     | 1 or 2 or 4 | Electric Current in A.                                       |
+| 13 (0x0d)  | power       | 1 or 2 or 4 | Electric Power in W.                                         |
+| 14 (0x0e)  | powerUsage  | 4           | Electric Power usage in kWh.                                 |
+| 15 (0x0f)  | waterUsage  | 4           | Water usage in Kilolitres.                                   |
+| 16 (0x10)  | speed       | 4           | Movement Speed in m/s.                                       |
+| 17 (0x11)  | rotation    | 4           | Rotational speed in RPM.                                     |
+| 18 (0x12)  | counter     | 4           | A generic counter in a 32-bits unsigned value.               |
+| 19 (0x13)  | digital     | 1           | A generic digital value.<br>0: Low or OFF, 1: High or ON, -1 Unknown or Invalid. |
+| 254 (0xfe) | uplinkPower | 1           | Exact value of TX Power in dBm.                              |
 
 
 
@@ -127,12 +127,12 @@ The NAN (Not A Number) (0x7fc00000), means the sensor value is unknown or invali
 
 Event data is information about change that occurs at a point in time. A event will contain the type value and additional event data.
 
-| Number | Name          | Length | Description                                                  |
-| ------ | ------------- | ------ | ------------------------------------------------------------ |
-| 0      | unknown       | 0      | No data.                                                     |
-| 11     | opened        | 1      | The unit is opened by a user. Data is the user ID.           |
-| 12     | specialOpened | 0      | The unit is opened in a special way. For example, a key or button. |
-| 13     | forceOpened   | 0      | The unit is opened in a abnormal way.                        |
+| Number    | Name          | Length | Description                                                  |
+| --------- | ------------- | ------ | ------------------------------------------------------------ |
+| 0 (0x00)  | unknown       | 0      | No data.                                                     |
+| 11 (0x0b) | opened        | 1      | The unit is opened by a user. Data is the user ID.           |
+| 12 (0x0c) | specialOpened | 0      | The unit is opened in a special way. For example, a key or button. |
+| 13 (0x0d) | forceOpened   | 0      | The unit is opened in a abnormal way.                        |
 
 
 
@@ -145,11 +145,12 @@ Payload is consisting of several commands in a Type-Length-Value (TLV) format. T
 | 0      | Get params     | 1      | Get parameter described by first byte.                       |
 | 1      | Set params     | >=2    | Set parameter described by first byte to the value specified in the rest of the message. |
 | 2      | Reboot         | 0      | Reboot the node immediately.                                 |
-| 1      | Reboot/upgrade | 1      | Reboot the node after the specified timeout; optionally turn BLE and SUOTA on for upgrades. The argument is as follows:bit [7]:0: just reboot1: BLE onbits [6:3]: Reservedbits [2:0]: Timeout0: TBD1: 5 minutes2: 15 minutes3: 30 minutes4: 1 hour5: 2 hours6: 4 hours7: TBD |
+| 3      | Reboot/upgrade | 1      | Reboot the node after the specified timeout; optionally turn BLE and SUOTA on for upgrades. The argument is as follows:bit [7]:0: just reboot1: BLE onbits [6:3]: Reservedbits [2:0]: Timeout0: TBD1: 5 minutes2: 15 minutes3: 30 minutes4: 1 hour5: 2 hours6: 4 hours7: TBD |
+| 4      | Set Controls   | \>=1   | Set a value to the control. For example, turn on/off a digital output. |
 
 
 
-## Parameters
+### Parameters
 
 | Number | Name    | Length | Description                                                  |
 | ------ | ------- | ------ | ------------------------------------------------------------ |
@@ -178,4 +179,15 @@ Sensor period is as follows:
 | 9      | 2 hours  |
 | 10     | 5 hours  |
 | 11     | 12 hours |
+
+
+
+### Controls
+
+Controls are used for the user to change a value or state of the device. The control data consists of a byte signifying the data type, and zero or more bytes of the data. The defined types and corresponding data formats are:
+
+| Number    | Name    | Length | Description                                               |
+| --------- | ------- | ------ | --------------------------------------------------------- |
+| 0 (0x00)  | unknown | 0      | No data.                                                  |
+| 19 (0x13) | digital | 1      | A generic digital value.<br>0: Low or OFF, 1: High or ON. |
 

@@ -27,7 +27,7 @@ If you're interested in the pure Chirsptack experience, or need to troubleshoot 
 ## Links
 
 * [Docker image](https://hub.docker.com/r/mxcdocker/supernode)
-* [Documentation & screenshots](https://github.com/mxc-foundation/lpwan-app-server.git) and [Getting started](https://github.com/mxc-foundation/lpwan-app-server/blob/master/README.md)
+* [Documentation & screenshots](https://github.com/mxc-foundation/lpwan-app-server.git)
 * [Contributing](https://github.com/mxc-foundation/lpwan-app-server.git)
 * Support
   * [Overview](https://mxc.wiki/en/help)
