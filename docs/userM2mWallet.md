@@ -28,7 +28,7 @@ DataDash top-ups are managed similarly to the average exchange top-up. From the 
 1. You should see your token in the MXC DataDash Wallet a few minutes after 12 confirmations are completed.
 
 ## Withdrawing MXC from your DataDash Wallet
-Withdrawing token will always have a withdrawal fee. At the time of writing, this withdrawal fee is 500 MXC. So make sure you withdraw more than 500 MXC to make the withdrawal economical. 
+Withdrawing token will always have a withdrawal fee. At the time of writing, this withdrawal fee listed in the DataDash app. At the time of writing, the fee is 700 MXC. So make sure you withdraw more than 500 MXC to make the withdrawal economical. 
 
 From the DataDash home screen:
 1. Press "Withdraw"
