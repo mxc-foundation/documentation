@@ -38,12 +38,14 @@ Sensor data consists of a byte signifying the sensor type, and zero or more byte
 | 11 (0x0b)  | voltage     | 1 or 2 or 4 | Voltage in V.                                                |
 | 12 (0x0c)  | current     | 1 or 2 or 4 | Electric Current in A.                                       |
 | 13 (0x0d)  | power       | 1 or 2 or 4 | Electric Power in W.                                         |
-| 14 (0x0e)  | powerUsage  | 4           | Electric Power usage in kWh.                                 |
+| 14 (0x0e)  | powerUsage  | 4           | Electric energy usage in kWh.                                |
 | 15 (0x0f)  | waterUsage  | 4           | Water usage in Kilolitres.                                   |
 | 16 (0x10)  | speed       | 4           | Movement Speed in m/s.                                       |
 | 17 (0x11)  | rotation    | 4           | Rotational speed in RPM.                                     |
 | 18 (0x12)  | counter     | 4           | A generic counter in a 32-bits unsigned value.               |
 | 19 (0x13)  | digital     | 1           | A generic digital value.<br>0: Low or OFF, 1: High or ON, -1 Unknown or Invalid. |
+| 20 (0x14)  | percent     | 1           | A generic value in percent.                                  |
+| 21 (0x15)  | powerFactor | 2 or 4      | Power factor for AC power system.<br />Value range from 0 to 1. |
 | 254 (0xfe) | uplinkPower | 1           | Exact value of TX Power in dBm.                              |
 
 
@@ -190,4 +192,5 @@ Controls are used for the user to change a value or state of the device. The con
 | --------- | ------- | ------ | --------------------------------------------------------- |
 | 0 (0x00)  | unknown | 0      | No data.                                                  |
 | 19 (0x13) | digital | 1      | A generic digital value.<br>0: Low or OFF, 1: High or ON. |
+| 20 (0x14) | percent | 1      | A generic value in percent.                               |
 
