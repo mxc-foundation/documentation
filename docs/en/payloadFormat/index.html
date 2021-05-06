@@ -101,12 +101,14 @@
 <tr><td>11 (0x0b)</td><td>voltage</td><td>1 or 2 or 4</td><td>Voltage in V.</td></tr>
 <tr><td>12 (0x0c)</td><td>current</td><td>1 or 2 or 4</td><td>Electric Current in A.</td></tr>
 <tr><td>13 (0x0d)</td><td>power</td><td>1 or 2 or 4</td><td>Electric Power in W.</td></tr>
-<tr><td>14 (0x0e)</td><td>powerUsage</td><td>4</td><td>Electric Power usage in kWh.</td></tr>
+<tr><td>14 (0x0e)</td><td>powerUsage</td><td>4</td><td>Electric energy usage in kWh.</td></tr>
 <tr><td>15 (0x0f)</td><td>waterUsage</td><td>4</td><td>Water usage in Kilolitres.</td></tr>
 <tr><td>16 (0x10)</td><td>speed</td><td>4</td><td>Movement Speed in m/s.</td></tr>
 <tr><td>17 (0x11)</td><td>rotation</td><td>4</td><td>Rotational speed in RPM.</td></tr>
 <tr><td>18 (0x12)</td><td>counter</td><td>4</td><td>A generic counter in a 32-bits unsigned value.</td></tr>
 <tr><td>19 (0x13)</td><td>digital</td><td>1</td><td>A generic digital value.<br>0: Low or OFF, 1: High or ON, -1 Unknown or Invalid.</td></tr>
+<tr><td>20 (0x14)</td><td>percent</td><td>1</td><td>A generic value in percent.</td></tr>
+<tr><td>21 (0x15)</td><td>powerFactor</td><td>2 or 4</td><td>Power factor for AC power system.<br />Value range from 0 to 1.</td></tr>
 <tr><td>254 (0xfe)</td><td>uplinkPower</td><td>1</td><td>Exact value of TX Power in dBm.</td></tr>
 </tbody>
 </table>
@@ -236,6 +238,7 @@ value = v_temp.getFloat32(<span class="hljs-number">0</span>)
 <tbody>
 <tr><td>0 (0x00)</td><td>unknown</td><td>0</td><td>No data.</td></tr>
 <tr><td>19 (0x13)</td><td>digital</td><td>1</td><td>A generic digital value.<br>0: Low or OFF, 1: High or ON.</td></tr>
+<tr><td>20 (0x14)</td><td>percent</td><td>1</td><td>A generic value in percent.</td></tr>
 </tbody>
 </table>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/mqtt"><span class="arrow-prev">← </span><span>MQTT</span></a><a class="docs-next button" href="/docs/en/userNominatePolkadot"><span>How to Nominate on Polkadot</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#uplink-payload-data-format">Uplink Payload Data Format</a><ul class="toc-headings"><li><a href="#sensor-data">Sensor Data</a></li><li><a href="#event-data">Event Data</a></li></ul></li><li><a href="#downlink-payload-data-format">Downlink Payload Data Format</a><ul class="toc-headings"><li><a href="#parameters">Parameters</a></li><li><a href="#controls">Controls</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="MXC Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/startingDev.html">Getting Started for Developers</a><a href="/docs/en/startingUser.html">Getting Started for Users</a></div><div><h5>Community</h5><a href="https://discord.gg/fbyCMa3" target="_blank" rel="noreferrer noopener">Developers on Discord</a><a href="https://discord.gg/fbyCMa3" target="_blank" rel="noreferrer noopener">Users on Discord</a><a href="https://t.me/mxcfoundation">Project Chat</a><a href="https://twitter.com/mxcfoundation" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="https://github.com/orgs/mxc-foundation/">GitHub</a><a class="github-button" href="https://github.com/mxc-foundation/lpwan-app-server" data-icon="octicon-star" data-count-href="/mxc-foundation/lpwan-app-server" data-show-count="true" data-count-aria-label="# MXC on GitHub" aria-label="Star this project on GitHub">Star</a><div class="social"><a href="https://twitter.com/mxcfoundation" class="twitter-follow-button">Follow @mxcfoundation</a></div></div></section><section class="copyright">Copyright © 2021 MXC Foundation gGmbH</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
