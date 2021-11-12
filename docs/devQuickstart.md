@@ -8,8 +8,8 @@ sidebar_label: Quickstart
 
 ## Requirements to run a supernode (provide the information to MXC DevOps)
 
-Launch a minimal Ubuntu 18 x64 server/instance with
-  - minimum 2xCPU/4GbRAM/30GbSSD
+Launch a minimal Ubuntu 20 x64 server/instance with
+  - minimum 4xCPU/8GbRAM/50GbSSD
   - an external STATIC IP (Elastic IP) assigned
   
 Create a user account with sudo permissions
